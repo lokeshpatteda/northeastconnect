@@ -1,4 +1,5 @@
 import './App.css'
+
 import ErrorBoundary from '../ErrorBoundary';
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import LandingPage from './components/neca_components/Landingpage';
