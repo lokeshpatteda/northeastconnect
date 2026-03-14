@@ -84,7 +84,7 @@ const LandingPage = () => {
                         {/* left Content */}
                         <div>
 
-                            <h2 className="text-4xl font-bold text-left text-gray-800 mb-3">
+                            <h2 className="text-4xl font-bold text-left text-gray-800 mb-3 text-yellow-500">
                                 Building a Stronger Community
                             </h2>
 
