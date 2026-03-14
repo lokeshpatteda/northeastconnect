@@ -1,5 +1,6 @@
 import { Necalogolight } from '@/assets/images/images'
 import { FaEnvelope, FaFacebookF, FaInstagram, FaLinkedinIn, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa'
+import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
@@ -45,14 +46,32 @@ const Footer = () => {
                             Quick Links
                         </h3>
 
+
                         <ul className="space-y-3 text-sm">
 
-                            <li className="hover:text-yellow-400 cursor-pointer">Home</li>
-                            <li className="hover:text-yellow-400 cursor-pointer">About Us</li>
-                            <li className="hover:text-yellow-400 cursor-pointer">What We Do</li>
-                            <li className="hover:text-yellow-400 cursor-pointer">Membership</li>
-                            <li className="hover:text-yellow-400 cursor-pointer">Events</li>
-                            <li className="hover:text-yellow-400 cursor-pointer">Contact</li>
+                            <li className="hover:text-yellow-400 cursor-pointer">
+                                <Link to="/home">Home</Link>
+                            </li>
+
+                            <li className="hover:text-yellow-400 cursor-pointer">
+                                <Link to="/about">About Us</Link>
+                            </li>
+
+                            <li className="hover:text-yellow-400 cursor-pointer">
+                                <Link to="/what-we-do">What We Do</Link>
+                            </li>
+
+                            <li className="hover:text-yellow-400 cursor-pointer">
+                                <Link to="/membership">Membership</Link>
+                            </li>
+
+                            <li className="hover:text-yellow-400 cursor-pointer">
+                                <Link to="/events">Events</Link>
+                            </li>
+
+                            <li className="hover:text-yellow-400 cursor-pointer">
+                                <Link to="/contact">Contact</Link>
+                            </li>
 
                         </ul>
                     </div>

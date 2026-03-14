@@ -10,10 +10,11 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/f
 import { Link } from 'react-router-dom';
 import Footer from './Footer';
 import Navigationbar from './Navigationbar';
+import { useNavigate } from "react-router-dom";
 
 
 const LandingPage = () => {
-
+    const navigate = useNavigate();
     const [current, setCurrent] = useState(0);
 
     const images = [Event1, Event2, Event3, Event4, Event5];
@@ -311,7 +312,8 @@ const LandingPage = () => {
                             {members.map((member, index) => (
                                 <div
                                     key={index}
-                                    className="group relative bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-500 overflow-hidden"
+                                    onClick={() => navigate(`/member/${member.id}`)}
+                                    className="group relative bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-500 overflow-hidden cursor-pointer "
                                 >
 
                                     {/* Image */}
@@ -320,7 +322,7 @@ const LandingPage = () => {
                                         <img
                                             src={member.img}
                                             alt={member.name}
-                                            className="w-full h-72 object-cover grayscale group-hover:grayscale-0 cursor-pointer transition duration-500"
+                                            className="w-full h-72 object-cover cursor-pointer grayscale group-hover:grayscale-0 transform transition-all duration-700 ease-out group-hover:scale-110 group-hover:-translate-y-2"
                                         />
 
                                         {/* Dark Overlay */}
@@ -368,14 +370,15 @@ const LandingPage = () => {
                                     </div>
 
                                     {/* Content */}
-                                    <div className="p-6 text-center">
-                                        <h3 className="font-semibold text-lg text-gray-800">
+                                    <div className="p-6 text-center transition-all duration-500 bg-transparent group-hover:bg-black/80">
+                                        <h3 className="font-semibold text-lg text-gray-800 group-hover:text-white transition-colors duration-500">
                                             {member.name}
                                         </h3>
 
                                         <p className="text-yellow-500 text-sm mt-1">
                                             {member.role}
                                         </p>
+
                                     </div>
 
                                 </div>
@@ -411,15 +414,18 @@ const LandingPage = () => {
                             <div className="flex flex-col sm:flex-row gap-5 border-t pt-6">
 
                                 {/* Date */}
-                                <div className="text-center sm:w-16">
-                                    <p className="text-sm uppercase text-gray-500">APR</p>
-                                    <p className="text-4xl font-bold text-gray-800">02</p>
+                                <div className="text-center flex flex-col justify-center align-items sm:w-16">
+                                    <p className="text-gray-500">Apr</p>
+                                    <p className="text-5xl font-bold text-yellow-600">02</p>
+                                    <p className="text-gray-500">Thursday</p>
+                                    <p className="text-xs text-gray-500">2026</p>
+
                                 </div>
 
                                 {/* Image */}
                                 <img
                                     src={Event5}
-                                    className="w-full sm:w-44 h-32 rounded-md object-cover"
+                                    className="w-full sm:w-44 h-42 rounded-md object-cover"
                                     alt="Event"
                                 />
 

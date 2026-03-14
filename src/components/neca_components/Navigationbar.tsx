@@ -122,9 +122,11 @@ const Navigationbar = () => {
 
                                     {/* Mobile Button */}
                                     <div className="mt-6">
-                                        <button className="w-full py-3 bg-yellow-400 rounded-full hover:bg-yellow-500 font-semibold cursor-pointer ">
-                                            Become a Member  <FontAwesomeIcon icon={faArrowRight} />
-                                        </button>
+                                        <Link to="/membership">
+                                            <button className="w-full py-3 bg-yellow-400 rounded-full hover:bg-yellow-500 font-semibold cursor-pointer ">
+                                                Become a Member  <FontAwesomeIcon icon={faArrowRight} />
+                                            </button>
+                                        </Link>
                                     </div>
 
                                 </DisclosurePanel>

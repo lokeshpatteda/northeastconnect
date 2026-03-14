@@ -243,44 +243,88 @@ const Membershipform = () => {
 
             {/* Preview Modal */}
             {previewOpen && (
-                <div className="fixed inset-0 bg-black/60 flex items-center justify-center">
+                <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50">
 
-                    <div className="bg-white p-8 rounded-xl w-[500px]">
+                    <div className="bg-white rounded-2xl shadow-xl w-[520px] p-8">
 
-                        <h3 className="text-xl font-bold mb-4">
-                            Preview Details
+                        <h3 className="text-2xl font-semibold text-center mb-6">
+                            Details Preview
                         </h3>
 
                         {/* Photo Preview */}
                         {photoPreview && (
-                            <div className="flex justify-center mb-4">
+                            <div className="flex justify-center mb-6">
                                 <img
                                     src={photoPreview}
                                     alt="Profile Preview"
-                                    className="w-24 h-24 rounded-full object-cover border"
+                                    className="w-24 h-24 rounded-full object-cover border-4 border-yellow-400 shadow-md"
                                 />
                             </div>
                         )}
 
-                        <p><b>Name:</b> {formData.name}</p>
-                        <p><b>Email:</b> {formData.email}</p>
-                        <p><b>Phone:</b> {formData.phone}</p>
-                        <p><b>City:</b> {formData.city}</p>
-                        <p><b>Occupation:</b> {formData.occupation}</p>
-                        <p><b>Membership:</b> {formData.membership}</p>
-                        <p><b>Message:</b> {formData.message}</p>
+                        {/* Info Table */}
+                        <table className="w-full text-left border-collapse">
 
-                        <div className="flex justify-end mt-6">
+                            <tbody className="text-gray-700">
+
+                                <tr className="border-b">
+                                    <td className="py-3 font-semibold w-40">Full Name</td>
+                                    <td className="py-3">{formData.name}</td>
+                                </tr>
+
+                                <tr className="border-b">
+                                    <td className="py-3 font-semibold">Email</td>
+                                    <td className="py-3">{formData.email}</td>
+                                </tr>
+
+                                <tr className="border-b">
+                                    <td className="py-3 font-semibold">Phone</td>
+                                    <td className="py-3">{formData.phone}</td>
+                                </tr>
+
+                                <tr className="border-b">
+                                    <td className="py-3 font-semibold">City</td>
+                                    <td className="py-3">{formData.city}</td>
+                                </tr>
+
+                                <tr className="border-b">
+                                    <td className="py-3 font-semibold">Occupation</td>
+                                    <td className="py-3">{formData.occupation}</td>
+                                </tr>
+
+                                <tr className="border-b">
+                                    <td className="py-3 font-semibold">Membership</td>
+                                    <td className="py-3">{formData.membership}</td>
+                                </tr>
+
+                                <tr>
+                                    <td className="py-3 font-semibold align-top">Message</td>
+                                    <td className="py-3">{formData.message}</td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                        {/* Buttons */}
+                        <div className="flex justify-end gap-3 mt-8">
+
                             <button
                                 onClick={() => setPreviewOpen(false)}
-                                className="bg-gray-400 px-6 py-2 rounded-full"
+                                className="px-5 py-2 bg-gray-200 rounded-full hover:bg-gray-300 transition"
                             >
                                 Close
                             </button>
+
+                            <button
+                                className="px-5 py-2 bg-yellow-400 rounded-full hover:bg-yellow-500 font-semibold transition"
+                            >
+                                Confirm
+                            </button>
+
                         </div>
 
                     </div>
-
                 </div>
             )}
 

@@ -8,6 +8,7 @@ import Whatwedo from './components/neca_components/Whatwedo';
 import Newsandevents from './components/neca_components/Newsandevents';
 import ContactUs from './components/neca_components/ContactUs';
 import Membershipform from './components/neca_components/Membershipform';
+import MemberProfile from './components/neca_components/MemberProfile';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
             <Route path="/events" element={<Newsandevents />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/membership" element={<Membershipform />} />
+            <Route path="/member/:id" element={<MemberProfile />} />
             <Route path="*" element={<Navigate to="/home" />} />
           </Routes>
         </BrowserRouter>
