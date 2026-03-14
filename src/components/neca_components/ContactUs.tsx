@@ -2,8 +2,15 @@ import { FaFacebookF, FaInstagram } from "react-icons/fa"
 import Footer from "./Footer"
 import Navigationbar from "./Navigationbar"
 import { Partner } from "@/assets/images/images"
+import { useEffect } from "react"
 
 const ContactUs = () => {
+
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <div>
             <Navigationbar />

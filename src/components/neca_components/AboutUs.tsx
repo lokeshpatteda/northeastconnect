@@ -2,8 +2,14 @@ import { Event2 } from "@/assets/images/images"
 import Footer from "./Footer"
 import Navigationbar from "./Navigationbar"
 import { FaBullseye, FaEye } from "react-icons/fa"
+import { useEffect } from "react"
 
 const AboutUs = () => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <div>
 

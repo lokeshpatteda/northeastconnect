@@ -1,6 +1,7 @@
 import { Event5 } from "@/assets/images/images";
 import Footer from "./Footer"
 import Navigationbar from "./Navigationbar"
+import { useEffect } from "react";
 
 const Whatwedo = () => {
     const objectives = [
@@ -14,6 +15,10 @@ const Whatwedo = () => {
         "Celebrate cultural heritage through festivals and activities.",
         "Encourage recreation and wellbeing among members."
     ];
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <div>

@@ -27,6 +27,10 @@ const LandingPage = () => {
         return () => clearInterval(slider);
     }, [images.length]);
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <>
             <div>
@@ -484,7 +488,7 @@ const LandingPage = () => {
                         </div>
 
                     </div>
-                </section >
+                </section>
 
 
                 <section className="py-10" id="contact">
