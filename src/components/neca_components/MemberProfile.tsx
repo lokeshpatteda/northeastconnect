@@ -50,7 +50,7 @@ const MemberProfile = () => {
 
                     </div>
 
-                    <div className="text-left mb-6">
+                    <div className="text-left mb-8">
                         <h2 className="text-xl font-semibold mb-2 border-l-4 border-yellow-500 pl-2">
                             {member.title1}
                         </h2>
@@ -59,7 +59,7 @@ const MemberProfile = () => {
                         </p>
                     </div>
 
-                    <div className="text-left mb-4">
+                    <div className="text-left mb-8">
                         <h2 className="text-xl font-semibold mb-2 border-l-4 border-yellow-500 pl-2">
                             {member.title2}
                         </h2>
@@ -84,7 +84,7 @@ const MemberProfile = () => {
                         </p>
                     </div>
 
-                    <div className="text-left mb-4">
+                    <div className="text-left mb-8">
                         <h2 className="text-xl font-semibold mb-2 border-l-4 border-yellow-500 pl-2">
                             {member.title3}
                         </h2>
@@ -109,7 +109,7 @@ const MemberProfile = () => {
 
                     </div>
 
-                    <div className="text-left mb-4">
+                    <div className="text-left mb-8">
                         <h2 className="text-xl font-semibold mb-2 border-l-4 border-yellow-500 pl-2">
                             {member.title4}
                         </h2>
@@ -136,7 +136,7 @@ const MemberProfile = () => {
 
                     </div>
 
-                    <div className="text-left mb-4">
+                    <div className="text-left mb-8">
                         <h2 className="text-xl font-semibold mb-2 border-l-4 border-yellow-500 pl-2">
                             {member.title5}
                         </h2>
@@ -157,7 +157,7 @@ const MemberProfile = () => {
                         )}
                     </div>
 
-                    <div className="text-left mb-4">
+                    <div className="text-left mb-8">
                         <h2 className="text-xl font-semibold mb-2 border-l-4 border-yellow-500 pl-2">
                             {member.title6}
                         </h2>
@@ -171,7 +171,7 @@ const MemberProfile = () => {
 
                     </div>
 
-                    <div className="text-left mb-4">
+                    <div className="text-left mb-8">
                         <h2 className="text-xl font-semibold mb-2 border-l-4 border-yellow-500 pl-2">
                             {member.title7}
                         </h2>
@@ -182,7 +182,8 @@ const MemberProfile = () => {
                             {member.lowsubbio2}
                         </p>
                     </div>
-                    <div className="text-left mb-4">
+
+                    <div className="text-left mb-8">
                         <h2 className="text-xl font-semibold mb-2 border-l-4 border-yellow-500 pl-2">
                             {member.title8}
                         </h2>
@@ -193,7 +194,8 @@ const MemberProfile = () => {
                             {member.lowsubbio5}
                         </p>
                     </div>
-                    <div className="text-left mb-4">
+
+                    <div className="text-left mb-8">
                         <h2 className="text-xl font-semibold mb-2 border-l-4 border-yellow-500 pl-2">
                             {member.title9}
                         </h2>

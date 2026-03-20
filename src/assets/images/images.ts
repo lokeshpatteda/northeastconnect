@@ -5,6 +5,8 @@ import Event2 from "./event2.jpg";
 import Event3 from "./event3.jpg";
 import Event4 from "./event4.jpg";
 import Event5 from "./event5.jpg";
+import Event6 from "./event6.jpg";
+import Event7 from "./event7.jpg";
 import IntroImage from "../images/intro-image.png";
 import Bemember from "../images/member.png";
 import Volunteer from "../images/volunteer.png";
@@ -28,6 +30,8 @@ export {
     Event3,
     Event4,
     Event5,
+    Event6,
+    Event7,
     IntroImage,
     Bemember,
     Volunteer,

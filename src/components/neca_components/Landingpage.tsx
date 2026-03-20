@@ -1,4 +1,4 @@
-import { Event1, Event2, Event3, Event4, Event5, IntroImage, Partner } from '@/assets/images/images';
+import { Event1, Event2, Event3, Event4, Event5, Event6, IntroImage, Partner } from '@/assets/images/images';
 import members from '@/pages/membersdata';
 import news from '@/pages/news';
 import getinvolved from '@/pages/textdata';
@@ -236,7 +236,7 @@ const LandingPage = () => {
 
                     {/* Background Image */}
                     <img
-                        src={Event4}
+                        src={Event5}
                         className="absolute inset-0 w-full h-full object-cover"
                         alt="NECA Community"
                     />
@@ -428,7 +428,7 @@ const LandingPage = () => {
 
                                 {/* Image */}
                                 <img
-                                    src={Event5}
+                                    src={Event6}
                                     className="w-full sm:w-44 h-42 rounded-md object-cover"
                                     alt="Event"
                                 />

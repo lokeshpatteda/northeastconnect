@@ -59,7 +59,7 @@ const members = [
     },
     {
         id: "sarbedwar-sahraiah",
-        name: "Dr Sarbedwar Sahraiah",
+        name: "Dr Sarbeswar Sahraiah",
         role: "Vice President",
         degustation: "Padma Shri Awardee | Chief Transplant Surgeon | Pro Vice Chancellor, USTM",
         img: member3,
@@ -183,7 +183,6 @@ const members = [
                 subtitle: "Skill Development",
                 subdata: "Recognizing that skill development is crucial for India's demographic dividend, Dr. Rao led efforts to strengthen skill training infrastructure, align skill development programs with industry needs, and create pathways for youth employment. His work in this area has had significant impact on enhancing employability of millions of Indian youth.",
             },
-
         ],
         title4: "President, Sampark Foundation",
         subchildbio: "In November 2022, following his retirement from government service, Dr. Rajeswara Rao joined Sampark Foundation as its President. Sampark Foundation is a leading NGO founded by Anupama and Vineet Nayar with a mission to deliver large-scale improvement in learning outcomes for 2 crore (20 million) government school children across India.",

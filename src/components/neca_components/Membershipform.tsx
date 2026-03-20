@@ -75,8 +75,6 @@ const Membershipform = () => {
 
                     </div>
 
-
-
                     {/* Form */}
                     <form
                         onSubmit={handleSubmit}
@@ -94,7 +92,6 @@ const Membershipform = () => {
                         </div>
 
                         <div className="grid md:grid-cols-3 text-left gap-6">
-
                             {/* Name */}
                             <div>
                                 <label className="text-sm font-medium">Full Name</label>
@@ -162,8 +159,7 @@ const Membershipform = () => {
                                     name="membership"
                                     value={formData.membership}
                                     onChange={(e) => handleChange(e)}
-                                    className="mt-2 w-full border rounded-lg px-4 py-3 focus:ring-2 focus:ring-yellow-400"
-                                >
+                                    className="mt-2 w-full border rounded-lg px-4 py-3 focus:ring-2 focus:ring-yellow-400" >
                                     <option>General Membership</option>
                                     <option>Volunteer</option>
                                     <option>Partner / Organization</option>

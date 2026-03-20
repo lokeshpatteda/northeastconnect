@@ -32,15 +32,18 @@ const Newsandevents = () => {
                         <div className="flex flex-col sm:flex-row gap-5 border-t pt-6">
 
                             {/* Date */}
-                            <div className="text-center sm:w-16">
-                                <p className="text-sm uppercase text-gray-500">APR</p>
-                                <p className="text-4xl font-bold text-gray-800">02</p>
+                            <div className="text-center flex flex-col justify-center align-items sm:w-16">
+                                <p className="text-gray-500">Apr</p>
+                                <p className="text-5xl font-bold text-yellow-600">02</p>
+                                <p className="text-gray-500">Thursday</p>
+                                <p className="text-xs text-gray-500">2026</p>
+
                             </div>
 
                             {/* Image */}
                             <img
                                 src={Event5}
-                                className="w-full sm:w-44 h-32 rounded-md object-cover"
+                                className="w-full sm:w-44 h-42 rounded-md object-cover"
                                 alt="Event"
                             />
 
@@ -99,7 +102,7 @@ const Newsandevents = () => {
                     </div>
 
                 </div>
-            </section >
+            </section>
             <Footer />
         </div>
     )
