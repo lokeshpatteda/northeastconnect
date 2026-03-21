@@ -1,6 +1,7 @@
 import { Necalogolight } from '@/assets/images/images'
 import { FaEnvelope, FaFacebookF, FaInstagram, FaLinkedinIn, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa'
 import { Link } from "react-router-dom";
+import ScrollTopButton from './ScrollTopButton';
 
 const Footer = () => {
     return (
@@ -151,6 +152,7 @@ const Footer = () => {
                 </div>
 
             </footer>
+            <ScrollTopButton />
         </div>
     )
 }

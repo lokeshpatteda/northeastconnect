@@ -31,6 +31,16 @@ const LandingPage = () => {
         window.scrollTo(0, 0);
     }, []);
 
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setActiveIndex((prev) => (prev + 1) % news.length);
+        }, 4000);
+
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <>
             <div>
@@ -407,83 +417,100 @@ const LandingPage = () => {
                         </p>
                     </div>
 
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-10">
 
-                        {/* LEFT SIDE - UPCOMING EVENT */}
-                        <div>
-                            <h3 className="text-lg font-semibold text-gray-700 mb-4 text-left">
+                        {/* LEFT - ACTIVE EVENT */}
+                        <div className="transition-all duration-700">
+
+                            <h3 className="text-lg text-left font-semibold text-gray-700 mb-4">
                                 Upcoming Events
                             </h3>
 
-                            <div className="flex flex-col sm:flex-row gap-5 border-t pt-6">
+                            <div className="flex flex-col sm:flex-row gap-6 border-t pt-6 items-center">
 
-                                {/* Date */}
-                                <div className="text-center flex flex-col justify-center align-items sm:w-16">
-                                    <p className="text-gray-500">Apr</p>
-                                    <p className="text-5xl font-bold text-yellow-600">02</p>
-                                    <p className="text-gray-500">Thursday</p>
-                                    <p className="text-xs text-gray-500">2026</p>
+                                {/* DATE BLOCK */}
+                                <div className="text-center min-w-[80px]">
+
+                                    <p className="text-gray-500 text-sm uppercase">
+                                        {news[activeIndex].month}
+                                    </p>
+
+                                    <p className="text-5xl font-bold text-yellow-500 leading-none">
+                                        {news[activeIndex].day}
+                                    </p>
+
+                                    <p className="text-gray-600 text-sm">
+                                        {news[activeIndex].weekday}
+                                    </p>
+
+                                    <p className="text-xs text-gray-400">
+                                        {news[activeIndex].year}
+                                    </p>
 
                                 </div>
 
-                                {/* Image */}
+                                {/* IMAGE */}
                                 <img
-                                    src={Event6}
-                                    className="w-full sm:w-44 h-42 rounded-md object-cover"
-                                    alt="Event"
+                                    src={news[activeIndex].img}
+                                    className="w-full sm:w-56 h-40 rounded-xl object-cover shadow-md transition-all duration-500"
                                 />
 
-                                {/* Content */}
+                                {/* CONTENT */}
                                 <div className="flex-1 text-left">
-                                    <h4 className="font-semibold text-gray-800">
-                                        NECA Sensitization Program
+
+                                    <h4 className="font-semibold text-gray-800 text-lg">
+                                        {news[activeIndex].title}
                                     </h4>
 
                                     <p className="text-sm text-gray-500 mt-1">
-                                        KIMS Hospital, Secunderabad
+                                        {news[activeIndex].month} {news[activeIndex].day}, {news[activeIndex].year}
                                     </p>
 
                                     <p className="text-sm text-gray-600 mt-2">
-                                        NECA is organizing a sensitization program aimed at promoting
-                                        awareness and strengthening community connections between
-                                        Northeast residents and local institutions.
+                                        NECA is organizing programs to strengthen community connections and promote cultural exchange.
                                     </p>
 
                                     <a
                                         href="#"
-                                        className="inline-block mt-3 text-sm font-medium text-underline text-gray-800 hover:text-yellow-500"
+                                        className="inline-block mt-3 text-sm font-medium text-gray-800 hover:text-yellow-500"
                                     >
-                                        View Event Details
+                                        {news[activeIndex].view}
                                     </a>
+
                                 </div>
 
                             </div>
                         </div>
 
 
-                        {/* RIGHT SIDE - NEWS LIST */}
+                        {/* RIGHT - OTHER EVENTS */}
                         <div className="space-y-5">
 
-                            {news.map((news, index) => (
-                                <div key={index} className="flex gap-4 items-start">
+                            {news
+                                .filter((_, i) => i !== activeIndex)
+                                .map((item, index) => (
+                                    <div
+                                        key={index}
+                                        className="flex gap-4 items-start opacity-80 hover:opacity-100 transition"
+                                    >
 
-                                    <img
-                                        src={news.img}
-                                        className="w-20 h-14 object-cover rounded-md"
-                                    />
+                                        <img
+                                            src={item.img}
+                                            className="w-20 h-14 object-cover rounded-md"
+                                        />
 
-                                    <div>
-                                        <h4 className="text-sm font-semibold text-gray-800">
-                                            {news.title}
-                                        </h4>
+                                        <div>
+                                            <h4 className="text-sm font-semibold text-gray-800">
+                                                {item.title}
+                                            </h4>
 
-                                        <p className="text-xs text-left text-gray-500">
-                                            {news.date}
-                                        </p>
+                                            <p className="text-sm text-left text-gray-500 mt-1">
+                                                {news[activeIndex].month} {news[activeIndex].day}, {news[activeIndex].year}
+                                            </p>
+                                        </div>
+
                                     </div>
-
-                                </div>
-                            ))}
+                                ))}
 
                         </div>
 
