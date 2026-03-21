@@ -1,4 +1,4 @@
-import { Event1, Event2, Event3, Event4, Event5, Event6, IntroImage, Partner } from '@/assets/images/images';
+import { Event1, Event2, Event3, Event4, Event5, IntroImage, Partner } from '@/assets/images/images';
 import members from '@/pages/membersdata';
 import news from '@/pages/news';
 import getinvolved from '@/pages/textdata';
@@ -7,10 +7,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { CircleFadingPlus } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Footer from './Footer';
 import Navigationbar from './Navigationbar';
-import { useNavigate } from "react-router-dom";
 
 
 const LandingPage = () => {
