@@ -1,5 +1,6 @@
 import Necalogo from "./neca-logo.png";
 import Necalogolight from "./necalogo-light.png";
+import Necaconnect from "./neca_connect.png";
 import Event1 from "./event1.jpg";
 import Event2 from "./event2.jpg";
 import Event3 from "./event3.jpg";
@@ -7,6 +8,8 @@ import Event4 from "./event4.jpg";
 import Event5 from "./event5.jpg";
 import Event6 from "./event6.jpg";
 import Event7 from "./event7.jpg";
+import Event8 from "./event8.jpg";
+import Event9 from "./event9.jpg";
 import IntroImage from "../images/intro-image.png";
 import Bemember from "../images/member.png";
 import Volunteer from "../images/volunteer.png";
@@ -25,6 +28,7 @@ import member7 from "../images/members/Sridharmuppidi.png";
 export {
     Necalogo,
     Necalogolight,
+    Necaconnect,
     Event1,
     Event2,
     Event3,
@@ -32,6 +36,8 @@ export {
     Event5,
     Event6,
     Event7,
+    Event8,
+    Event9,
     IntroImage,
     Bemember,
     Volunteer,

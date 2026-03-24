@@ -107,7 +107,7 @@ const Footer = () => {
                             </div>
 
                             <p className="text-gray-400">
-                                Dr K Trilok Chandan Goud – Manager, NECA
+                                Dr K Trilok Chandan Goud – Coordinator, NECA
                             </p>
 
                         </div>

@@ -82,6 +82,12 @@ const MemberProfile = () => {
                         <p className="text-gray-600 leading-relaxed pt-3">
                             {member.subbio2}
                         </p>
+                        <p className="text-gray-600 leading-relaxed pt-3">
+                            {member.subbio3}
+                        </p>
+                        <p className="text-gray-600 leading-relaxed pt-3">
+                            {member.subbio4}
+                        </p>
                     </div>
 
                     <div className="text-left mb-8">

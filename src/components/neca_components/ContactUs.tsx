@@ -52,7 +52,7 @@ const ContactUs = () => {
                                     Dr K Trilok Chandan Goud
                                 </h2>
                                 <p className="text-gray-200">
-                                    Manager, NECA
+                                    Coordinator, NECA
                                 </p>
                             </div>
 

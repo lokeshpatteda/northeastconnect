@@ -1,4 +1,4 @@
-import { Event1, Event2, Event3, Event4, Event5, IntroImage, Partner } from '@/assets/images/images';
+import { Event1, Event2, Event3, Event4, Event5, Event8, Event9, IntroImage, Partner } from '@/assets/images/images';
 import members from '@/pages/membersdata';
 import news from '@/pages/news';
 import getinvolved from '@/pages/textdata';
@@ -16,7 +16,7 @@ const LandingPage = () => {
     const navigate = useNavigate();
     const [current, setCurrent] = useState(0);
 
-    const images = [Event1, Event2, Event3, Event4, Event5];
+    const images = [Event1, Event2, Event3, Event4, Event5, Event8, Event9];
 
     useEffect(() => {
         const slider = setInterval(() => {
@@ -245,7 +245,7 @@ const LandingPage = () => {
 
                     {/* Background Image */}
                     <img
-                        src={Event5}
+                        src={Event8}
                         className="absolute inset-0 w-full h-full object-cover"
                         alt="NECA Community"
                     />
@@ -555,7 +555,7 @@ const LandingPage = () => {
                                         Dr K Trilok Chandan Goud
                                     </h2>
                                     <p className="text-gray-200">
-                                        Manager, NECA
+                                        Coordinator, NECA
                                     </p>
                                 </div>
 
@@ -660,6 +660,7 @@ const LandingPage = () => {
                 </section>
 
                 <Footer />
+
             </div >
         </>
     )

@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
 
-import { Necalogo } from '@/assets/images/images'
+import { Necaconnect, Necalogo } from '@/assets/images/images'
 import { faArrowRight, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
+import { Typewriter } from "react-simple-typewriter";
 const navigation = [
     { name: 'Home', href: '/home' },
     { name: 'About Us', href: '/about' },
@@ -16,6 +17,17 @@ const navigation = [
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
 }
+
+const states = [
+    "Arunachal Pradesh",
+    "Assam",
+    "Manipur",
+    "Meghalaya",
+    "Mizoram",
+    "Nagaland",
+    "Tripura",
+    "Sikkim"
+];
 
 const Navigationbar = () => {
 
@@ -79,12 +91,29 @@ const Navigationbar = () => {
                                         </div>
 
                                         {/* Desktop Button */}
-                                        <div className="hidden sm:block">
+                                        {/* <div className="hidden sm:block">
                                             <Link to="/membership">
                                                 <button className="px-6 py-2 cursor-pointer bg-yellow-400 font-semibold rounded-full hover:bg-yellow-500 flex items-center gap-2">
                                                     Become a Member <FontAwesomeIcon icon={faArrowRight} />
                                                 </button>
                                             </Link>
+                                        </div> */}
+
+                                        <div className="flex items-center gap-4 hidden sm:flex ">
+                                            <div className="text-sm font-medium text-right  w-50">
+                                                <Typewriter
+                                                    words={states}
+                                                    loop={0} // infinite
+                                                    cursor
+                                                    cursorStyle="|"
+                                                    typeSpeed={70}
+                                                    deleteSpeed={40}
+                                                    delaySpeed={1500}
+                                                />
+                                            </div>
+                                            <div className="border-l pl-3">
+                                                < img src={Necaconnect} className="h-16 w-auto" />
+                                            </div>
                                         </div>
 
                                         {/* Mobile Menu Button */}
