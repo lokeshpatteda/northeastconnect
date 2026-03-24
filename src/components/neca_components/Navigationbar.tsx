@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 
 import { Necaconnect, Necalogo } from '@/assets/images/images'
-import { faArrowRight, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
-import { Typewriter } from "react-simple-typewriter";
+import { Typewriter } from "react-simple-typewriter"
 const navigation = [
     { name: 'Home', href: '/home' },
     { name: 'About Us', href: '/about' },
