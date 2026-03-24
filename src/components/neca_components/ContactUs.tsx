@@ -49,7 +49,7 @@ const ContactUs = () => {
                             {/* Manager */}
                             <div className="mb-6">
                                 <h2 className="text-3xl font-bold">
-                                    Dr K Trilok Chandan Goud
+                                    Dr. K Trilok Chandan Goud
                                 </h2>
                                 <p className="text-gray-200">
                                     Coordinator, NECA

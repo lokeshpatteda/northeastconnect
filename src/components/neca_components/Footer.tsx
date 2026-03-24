@@ -8,7 +8,7 @@ const Footer = () => {
         <div>
             <footer className="bg-[#0f1720] text-gray-300 pt-16 pb-6">
 
-                <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 lg:grid-cols-[1fr_1fr_1.2fr_1.2fr] gap-6">
 
                     {/* ABOUT */}
                     <div>
@@ -91,8 +91,8 @@ const Footer = () => {
                                 <FaMapMarkerAlt className="text-yellow-400 mt-1" />
                                 <p>
                                     North-East Connect Association (NECA) <br />
-                                    Sundarayya Vignana Kendram, Gachibowli, Hyderabad <br />
-                                    Telangana – 500032
+                                    Sundarayya Vignana Kendram, Gachibowli, <br />
+                                    Hyderabad, Telangana – 500032
                                 </p>
                             </div>
 
@@ -107,7 +107,7 @@ const Footer = () => {
                             </div>
 
                             <p className="text-gray-400">
-                                Dr K Trilok Chandan Goud – Coordinator, NECA
+                                Dr. K Trilok Chandan Goud – Coordinator, NECA
                             </p>
 
                         </div>
@@ -130,11 +130,11 @@ const Footer = () => {
                             </li>
 
                             <li>
-                                PAN : AAMAN0270C
+                                PAN: AAMAN0270C
                             </li>
 
                             <li>
-                                NITI Aayog DARPAN ID : TS/2026/0982277
+                                NITI Aayog DARPAN ID: TS/2026/0982277
                             </li>
 
                         </ul>

@@ -100,7 +100,7 @@ const Navigationbar = () => {
                                         </div> */}
 
                                         <div className="flex items-center gap-4 hidden sm:flex ">
-                                            <div className="text-sm font-medium text-right  w-50">
+                                            <div className="text-md font-medium text-right text-green-600  w-50">
                                                 <Typewriter
                                                     words={states}
                                                     loop={0} // infinite
@@ -150,13 +150,13 @@ const Navigationbar = () => {
                                     ))}
 
                                     {/* Mobile Button */}
-                                    <div className="mt-6">
+                                    {/* <div className="mt-6">
                                         <Link to="/membership">
                                             <button className="w-full py-3 bg-yellow-400 rounded-full hover:bg-yellow-500 font-semibold cursor-pointer ">
                                                 Become a Member  <FontAwesomeIcon icon={faArrowRight} />
                                             </button>
                                         </Link>
-                                    </div>
+                                    </div> */}
 
                                 </DisclosurePanel>
                             </>
