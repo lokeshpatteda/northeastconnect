@@ -1,8 +1,8 @@
+import { Partner } from "@/assets/images/images"
+import { useEffect } from "react"
 import { FaFacebookF, FaInstagram } from "react-icons/fa"
 import Footer from "./Footer"
 import Navigationbar from "./Navigationbar"
-import { Partner } from "@/assets/images/images"
-import { useEffect } from "react"
 
 const ContactUs = () => {
 
@@ -23,7 +23,7 @@ const ContactUs = () => {
                     </p>
 
                     <h2 className="text-4xl font-bold text-gray-800 mb-2">
-                        Contact Us
+                        Contact <span className="text-yellow-500">Us</span>
                     </h2>
                     <p className='text-gray-500'>We'd love to hear from you. Whether you have a question, want to
                         collaborate, or are interested in membership, please reach out.

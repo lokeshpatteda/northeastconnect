@@ -1,7 +1,7 @@
 import { Event5 } from "@/assets/images/images";
-import Footer from "./Footer"
-import Navigationbar from "./Navigationbar"
 import { useEffect } from "react";
+import Footer from "./Footer";
+import Navigationbar from "./Navigationbar";
 
 const Whatwedo = () => {
     const objectives = [
@@ -43,9 +43,9 @@ const Whatwedo = () => {
             <section className="py-20 bg-gray-50">
 
                 <div className="max-w-7xl mx-auto px-6">
-
+                    <p className="text-green-600 font-medium"> Key Goals</p>
                     <h2 className="text-4xl font-bold text-center mb-12">
-                        Aims & Objectives
+                        Aims & <span className="text-yellow-500">Objectives</span>
                     </h2>
 
                     <div className="grid md:grid-cols-3 gap-8">

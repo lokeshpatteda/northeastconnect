@@ -1,14 +1,14 @@
-import './App.css'
+import './App.css';
 
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import ErrorBoundary from '../ErrorBoundary';
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import LandingPage from './components/neca_components/Landingpage';
 import AboutUs from './components/neca_components/AboutUs';
-import Whatwedo from './components/neca_components/Whatwedo';
-import Newsandevents from './components/neca_components/Newsandevents';
 import ContactUs from './components/neca_components/ContactUs';
-import Membershipform from './components/neca_components/Membershipform';
+import LandingPage from './components/neca_components/Landingpage';
 import MemberProfile from './components/neca_components/MemberProfile';
+import Membershipform from './components/neca_components/Membershipform';
+import Newsandevents from './components/neca_components/Newsandevents';
+import Whatwedo from './components/neca_components/Whatwedo';
 
 function App() {
 

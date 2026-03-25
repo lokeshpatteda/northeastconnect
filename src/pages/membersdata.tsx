@@ -62,7 +62,7 @@ const members = [
     },
     {
         id: "sarbedwar-sahraiah",
-        name: "Dr Sarbeswar Sahraiah",
+        name: "Dr. Sarbeswar Sahariah",
         role: "Vice President",
         degustation: "Padma Shri Awardee | Chief Transplant Surgeon | Pro Vice Chancellor, USTM",
         img: member3,
@@ -90,7 +90,7 @@ const members = [
     },
     {
         id: "ajailiu-niumai",
-        name: "Prof Ajailiu Niumai",
+        name: "Prof. Ajailiu Niumai",
         role: "General Secretary",
         degustation: "Professor of Sociology | University of Hyderabad | Social Inclusion Expert",
         img: member5,
@@ -159,7 +159,7 @@ const members = [
     },
     {
         id: "rajeswara-rao",
-        name: "Dr K Rajeswara Rao",
+        name: "Dr. K Rajeswara Rao",
         role: "Senior Retired IAS Officer",
         degustation: "IAS (1988 Batch) | Former Special Secretary, NITI Aayog | President, Sampark Foundation",
         img: member6,

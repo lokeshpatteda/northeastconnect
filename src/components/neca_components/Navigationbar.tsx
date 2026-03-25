@@ -19,20 +19,31 @@ function classNames(...classes: string[]) {
 }
 
 const states = [
-    "Arunachal Pradesh",
-    "Assam",
-    "Manipur",
-    "Meghalaya",
-    "Mizoram",
-    "Nagaland",
-    "Tripura",
-    "Sikkim"
+    { name: "Arunachal Pradesh", capital: "● Itanagar" },
+    { name: "Assam", capital: "● Dispur" },
+    { name: "Manipur", capital: "● Imphal" },
+    { name: "Meghalaya", capital: "● Shillong" },
+    { name: "Mizoram", capital: "● Aizawl" },
+    { name: "Nagaland", capital: "● Kohima" },
+    { name: "Tripura", capital: "● Agartala" },
+    { name: "Sikkim", capital: "● Gangtok" }
 ];
 
 const Navigationbar = () => {
 
     const [isSticky, setIsSticky] = useState(false);
     const [activeTab, setActiveTab] = useState("Home");
+    const [index, setIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setIndex((prev) => (prev + 1) % states.length);
+        }, 3000);
+
+        return () => clearInterval(interval);
+    }, []);
+
+
 
     useEffect(() => {
         const handleScroll = () => {
@@ -48,6 +59,7 @@ const Navigationbar = () => {
     return (
         <div>
             <div className="max-w-9/10  m-auto bg-gradient-to-r from-gray-900 to-gray-800 p-3 px-4 rounded-b-lg">
+
                 <div className=" font-medium flex justify-between text-white">
                     <label> <FontAwesomeIcon icon={faPhone} className='text-yellow-400 me-1' /> +91 9493460031</label>
                     <label className='flex items-center gap-2'> <FontAwesomeIcon icon={faEnvelope} className='text-yellow-400 me-1 pt-1' /> <a href="mailto:northeastconnectassociation@gmail.com" className="hidden sm:block text-white hover:text-yellow-200">northeastconnectassociation@gmail.com</a></label>
@@ -77,12 +89,11 @@ const Navigationbar = () => {
                                                 <Link
                                                     key={item.name}
                                                     to={item.href}
-                                                    onClick={() => setActiveTab(item.name)}
                                                     className={classNames(
-                                                        activeTab === item.name
-                                                            ? "text-black border-b-3 border-yellow-500"
-                                                            : "text-gray-600 hover:text-black hover:border-b-3 hover:border-yellow-500",
-                                                        "px-3 py-2 text-md font-medium border-b-3 border-transparent transition"
+                                                        location.pathname === item.href
+                                                            ? "text-black border-b-[3px] border-yellow-500"
+                                                            : "text-gray-600 hover:text-black hover:border-b-[3px] hover:border-yellow-500",
+                                                        "px-3 py-2 text-md font-medium border-b-[3px] border-transparent transition"
                                                     )}
                                                 >
                                                     {item.name}
@@ -100,16 +111,35 @@ const Navigationbar = () => {
                                         </div> */}
 
                                         <div className="flex items-center gap-4 hidden sm:flex ">
-                                            <div className="text-md font-medium text-right text-green-600  w-50">
-                                                <Typewriter
-                                                    words={states}
-                                                    loop={0} // infinite
-                                                    cursor
-                                                    cursorStyle="|"
-                                                    typeSpeed={70}
-                                                    deleteSpeed={40}
-                                                    delaySpeed={1500}
-                                                />
+                                            <div className="hidden sm:flex flex-col items-end w-35 gap-0">
+
+                                                {/* State */}
+                                                <div className="text-green-600 text-base font-semibold">
+                                                    <Typewriter
+                                                        key={states[index].name}
+                                                        words={[states[index].name]}
+                                                        loop={1}
+                                                        cursor
+                                                        cursorStyle="|"
+                                                        typeSpeed={70}
+                                                        deleteSpeed={40}
+                                                        delaySpeed={1000}
+                                                    />
+                                                </div>
+
+                                                {/* Capital */}
+                                                <div className="text-gray-600 text-xs">
+                                                    <Typewriter
+                                                        key={states[index].capital}
+                                                        words={[states[index].capital]}
+                                                        loop={1}
+                                                        cursor={false}
+                                                        typeSpeed={70}
+                                                        deleteSpeed={40}
+                                                        delaySpeed={1000}
+                                                    />
+                                                </div>
+
                                             </div>
                                             <div className="border-l pl-3">
                                                 < img src={Necaconnect} className="h-16 w-auto" />

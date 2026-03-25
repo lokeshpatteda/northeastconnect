@@ -1,8 +1,8 @@
 import { Event2 } from "@/assets/images/images"
+import { useEffect } from "react"
+import { FaBullseye, FaEye } from "react-icons/fa"
 import Footer from "./Footer"
 import Navigationbar from "./Navigationbar"
-import { FaBullseye, FaEye } from "react-icons/fa"
-import { useEffect } from "react"
 
 const AboutUs = () => {
 
@@ -69,7 +69,7 @@ const AboutUs = () => {
                         <div className="text-center mb-16">
                             <p className="text-green-600 font-medium">Our Purpose</p>
                             <h2 className="text-4xl font-bold text-gray-800">
-                                Vision & Mission
+                                Vision &  <span className="text-yellow-500">Mission</span>
                             </h2>
                             <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
                                 Guiding principles that drive the North-East Connect Association in
@@ -121,7 +121,7 @@ const AboutUs = () => {
 
                                 <div className="grid md:grid-cols-4 gap-8">
 
-                                    <div className="p-6 shadow rounded-xl text-center">
+                                    <div className="p-6 shadow border rounded-xl text-center">
                                         <h4 className="font-semibold text-lg"> Cultural Exchange</h4>
                                         <p className="text-gray-600 text-sm mt-2">
                                             Promoting mutual understanding and respect for the
@@ -129,7 +129,7 @@ const AboutUs = () => {
                                         </p>
                                     </div>
 
-                                    <div className="p-6 shadow rounded-xl text-center">
+                                    <div className="p-6 shadow border rounded-xl text-center">
                                         <h4 className="font-semibold text-lg">  Community Building</h4>
                                         <p className="text-gray-600 text-sm mt-2">
                                             Creating supportive networks and platforms for
@@ -137,7 +137,7 @@ const AboutUs = () => {
                                         </p>
                                     </div>
 
-                                    <div className="p-6 shadow rounded-xl text-center">
+                                    <div className="p-6 shadow border rounded-xl text-center">
                                         <h4 className="font-semibold text-lg">  Empowerment</h4>
                                         <p className="text-gray-600 text-sm mt-2">
                                             Providing resources and assistance to enhance
@@ -145,7 +145,7 @@ const AboutUs = () => {
                                         </p>
                                     </div>
 
-                                    <div className="p-6 shadow rounded-xl text-center">
+                                    <div className="p-6 shadow border rounded-xl text-center">
                                         <h4 className="font-semibold text-lg">Advocacy</h4>
                                         <p className="text-gray-600 text-sm mt-2">
                                             Collaborating with institutions and authorities to
@@ -177,21 +177,21 @@ const AboutUs = () => {
 
                         <div className="grid md:grid-cols-4 gap-8">
 
-                            <div className="p-6 shadow rounded-xl text-center">
+                            <div className="p-6 shadow border rounded-xl text-center">
                                 <h4 className="font-semibold text-lg">Inclusivity</h4>
                                 <p className="text-gray-600 text-sm mt-2">
                                     We welcome and celebrate people from all backgrounds.
                                 </p>
                             </div>
 
-                            <div className="p-6 shadow rounded-xl text-center">
+                            <div className="p-6 shadow border rounded-xl text-center">
                                 <h4 className="font-semibold text-lg">Respect</h4>
                                 <p className="text-gray-600 text-sm mt-2">
                                     We foster dialogue and activities built on mutual respect and understanding
                                 </p>
                             </div>
 
-                            <div className="p-6 shadow rounded-xl text-center">
+                            <div className="p-6 shadow border rounded-xl text-center">
                                 <h4 className="font-semibold text-lg">Empowerment</h4>
                                 <p className="text-gray-600 text-sm mt-2">
                                     We equip individuals with the tools and confidence to participate fully in
@@ -200,7 +200,7 @@ const AboutUs = () => {
                                 </p>
                             </div>
 
-                            <div className="p-6 shadow rounded-xl text-center">
+                            <div className="p-6 shadow border rounded-xl text-center">
                                 <h4 className="font-semibold text-lg">Collaboration</h4>
                                 <p className="text-gray-600 text-sm mt-2">
                                     We believe in the power of working together with communities,

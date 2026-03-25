@@ -10,12 +10,13 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/f
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from './Footer';
 import Navigationbar from './Navigationbar';
+import RecentActivity from './RecentActivity';
 
 
 const LandingPage = () => {
     const navigate = useNavigate();
     const [current, setCurrent] = useState(0);
-
+    const [activeIndex, setActiveIndex] = useState(0);
     const images = [Event1, Event2, Event3, Event4, Event5, Event8, Event9];
 
     useEffect(() => {
@@ -30,7 +31,7 @@ const LandingPage = () => {
         window.scrollTo(0, 0);
     }, []);
 
-    const [activeIndex, setActiveIndex] = useState(0);
+
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -278,10 +279,12 @@ const LandingPage = () => {
                                 <button className="px-6 py-3 bg-white/20 backdrop-blur rounded-full hover:bg-white/30">
                                     Discover More
                                 </button>
+                                <Link to="/membership">
+                                    <button className="px-6 py-3 bg-yellow-400 text-black rounded-full cursor-pointer    hover:bg-yellow-500">
+                                        Join NECA
+                                    </button>
+                                </Link>
 
-                                <button className="px-6 py-3 bg-yellow-400 text-black rounded-full hover:bg-yellow-500">
-                                    Join NECA
-                                </button>
 
                             </div>
 
@@ -430,11 +433,11 @@ const LandingPage = () => {
                                 {/* DATE BLOCK */}
                                 <div className="text-center min-w-[80px]">
 
-                                    <p className="text-gray-500 text-sm uppercase">
+                                    <p className="text-gray-600 text-sm uppercase">
                                         {news[activeIndex].month}
                                     </p>
 
-                                    <p className="text-5xl font-bold text-yellow-500 leading-none">
+                                    <p className="text-5xl font-bold text-yellow-600 leading-none">
                                         {news[activeIndex].day}
                                     </p>
 
@@ -442,7 +445,7 @@ const LandingPage = () => {
                                         {news[activeIndex].weekday}
                                     </p>
 
-                                    <p className="text-xs text-gray-400">
+                                    <p className="text-xs text-gray-500">
                                         {news[activeIndex].year}
                                     </p>
 
@@ -514,6 +517,8 @@ const LandingPage = () => {
                         </div>
 
                     </div>
+                    <RecentActivity />
+
                 </section>
 
 
@@ -526,7 +531,7 @@ const LandingPage = () => {
                         </p>
 
                         <h2 className="text-4xl font-bold text-gray-800 mb-2">
-                            Contact Us
+                            Contact <span className="text-yellow-500">Us</span>
                         </h2>
                         <p className='text-gray-500'>We'd love to hear from you. Whether you have a question, want to
                             collaborate, or are interested in membership, please reach out.

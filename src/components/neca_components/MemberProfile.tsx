@@ -1,7 +1,7 @@
 import { Necalogo } from "@/assets/images/images";
 import members from "@/pages/membersdata";
 import { useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Footer from "./Footer";
 
 const MemberProfile = () => {
