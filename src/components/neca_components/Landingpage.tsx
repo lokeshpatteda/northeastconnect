@@ -436,10 +436,17 @@ const LandingPage = () => {
                                     <p className="text-gray-600 text-sm uppercase">
                                         {news[activeIndex].month}
                                     </p>
+                                    <div className='flex gap-2 items-center justify-center'>
 
-                                    <p className="text-5xl font-bold text-yellow-600 leading-none">
-                                        {news[activeIndex].day}
-                                    </p>
+                                        <p className="text-5xl font-bold text-yellow-600 leading-none">
+                                            {news[activeIndex].day}
+                                        </p>
+                                        <p className="text-xl font-bold text-gray-800 border-l border-gray-400 pl-3">
+                                            {news[activeIndex].time}
+                                        </p>
+
+
+                                    </div>
 
                                     <p className="text-gray-600 text-sm">
                                         {news[activeIndex].weekday}

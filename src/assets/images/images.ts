@@ -31,6 +31,8 @@ import Event9 from "./event9.jpg";
 import Necalogo from "./neca-logo.png";
 import Necaconnect from "./neca_connect.png";
 import Necalogolight from "./necalogo-light.png";
+import Loginimg from "./login_bg.jpg";
+
 
 
 
@@ -60,7 +62,8 @@ export {
     Activity3,
     Activity4,
     Activity5,
-    Activity6
+    Activity6,
+    Loginimg
 
 };
 

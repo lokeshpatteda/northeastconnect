@@ -9,6 +9,8 @@ import MemberProfile from './components/neca_components/MemberProfile';
 import Membershipform from './components/neca_components/Membershipform';
 import Newsandevents from './components/neca_components/Newsandevents';
 import Whatwedo from './components/neca_components/Whatwedo';
+import AdminLogin from './components/neca_admin/AdminLogin';
+import AdminDashboard from './components/neca_admin/AdminDashboard';
 
 function App() {
 
@@ -27,6 +29,8 @@ function App() {
             <Route path="/membership" element={<Membershipform />} />
             <Route path="/member/:id" element={<MemberProfile />} />
             <Route path="*" element={<Navigate to="/home" />} />
+            <Route path="/adminlogin" element={<AdminLogin />} />
+            <Route path="/dashboard" element={<AdminDashboard />} />
           </Routes>
         </BrowserRouter>
       </ErrorBoundary>
