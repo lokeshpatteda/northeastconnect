@@ -1,4 +1,3 @@
-"use client";
 
 import {
     Carousel,
@@ -30,6 +29,7 @@ type Activity = {
     weekday: string;
     year: string;
     view: string;
+    upcome: string;
 };
 
 const RecentActivity = () => {
@@ -56,11 +56,12 @@ const RecentActivity = () => {
     const activities: Activity[] = [
         {
             img: Activity1,
-            title: "NECA sensitization program",
+            title: "Sensitization program at KIMS Hospital",
             month: "Apr",
             day: "02",
             weekday: "Thursday",
             year: "2026",
+            upcome: "",
             view: "View Details",
         },
         {
@@ -70,6 +71,7 @@ const RecentActivity = () => {
             day: "05",
             weekday: "Sunday",
             year: "2026",
+            upcome: "Upcoming",
             view: "View Details",
         },
         {
@@ -79,6 +81,7 @@ const RecentActivity = () => {
             day: "10",
             weekday: "Friday",
             year: "2026",
+            upcome: "Upcoming",
             view: "View Details",
         },
         {
@@ -88,6 +91,7 @@ const RecentActivity = () => {
             day: "15",
             weekday: "Wednesday",
             year: "2026",
+            upcome: "Upcoming",
             view: "View Details",
         },
         {
@@ -97,6 +101,7 @@ const RecentActivity = () => {
             day: "20",
             weekday: "Monday",
             year: "2026",
+            upcome: "Upcoming",
             view: "View Details",
         },
         {
@@ -106,6 +111,7 @@ const RecentActivity = () => {
             day: "25",
             weekday: "Saturday",
             year: "2026",
+            upcome: "Upcoming",
             view: "View Details",
         },
     ];
@@ -114,7 +120,7 @@ const RecentActivity = () => {
         <div className="max-w-7xl mx-auto px-4 mt-16">
             {/* Title */}
             <h3 className="text-xl font-semibold text-gray-800 mb-6 text-center">
-                Recent Activity
+                Recents & Activities
             </h3>
 
             {/* Carousel */}
@@ -154,9 +160,19 @@ const RecentActivity = () => {
                                         {item.title}
                                     </h4>
 
-                                    <p className="text-xs text-gray-500 mt-2">
-                                        {item.month} {item.day}, {item.year}
+                                    <p className="text-xs mt-2">
+                                        {item.upcome ? (
+                                            <span className="text-green-600 font-medium">
+                                                {item.upcome}
+                                            </span>
+                                        ) : (
+                                            <span className="text-yellow-600 font-medium">
+                                                {item.month} {item.day}, {item.year}
+                                            </span>
+                                        )}
                                     </p>
+
+
                                 </div>
                             </div>
                         </CarouselItem>
