@@ -58,7 +58,7 @@ const Membershipform = () => {
             }
 
             // Save to shared Backend for Admin Portal
-            const response = await fetch('http://localhost:3000/api/memberships', {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/memberships`, {
                 method: 'POST',
                 body: data
             });

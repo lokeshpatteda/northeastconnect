@@ -62,7 +62,7 @@ app.get('/api/memberships', async (req, res) => {
 app.post('/api/memberships', upload.single('profileImage'), async (req, res) => {
     try {
         const submission = req.body;
-        const imageUrl = req.file ? `http://localhost:${PORT}/uploads/${req.file.filename}` : null;
+        const imageUrl = req.file ? `${process.env.BASE_URL}/uploads/${req.file.filename}` : null;
         
         const newSubmission = {
             ...submission,
@@ -135,7 +135,7 @@ app.get('/api/contacts', async (req, res) => {
 app.post('/api/contacts', upload.single('attachment'), async (req, res) => {
     try {
         const submission = req.body;
-        const imageUrl = req.file ? `http://localhost:${PORT}/uploads/${req.file.filename}` : null;
+        const imageUrl = req.file ? `${process.env.BASE_URL}/uploads/${req.file.filename}` : null;
 
         const newSubmission = {
             ...submission,

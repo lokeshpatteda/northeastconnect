@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { io } from 'socket.io-client';
 import { toast } from 'sonner';
 
-const socket = io('http://localhost:3000');
+const socket = io(import.meta.env.VITE_API_URL);
 
 const ContactInquiries = () => {
     const [inquiries, setInquiries] = useState<ContactData[]>([]);

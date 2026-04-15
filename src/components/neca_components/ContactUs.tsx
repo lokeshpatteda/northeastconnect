@@ -22,7 +22,7 @@ const ContactUs = () => {
 
         try {
             // Save to shared Backend for Admin Portal
-            const response = await fetch('http://localhost:3000/api/contacts', {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/contacts`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)

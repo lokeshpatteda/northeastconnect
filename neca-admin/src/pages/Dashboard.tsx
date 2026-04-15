@@ -12,7 +12,7 @@ import { DataService } from '../services/dataService';
 import { motion } from 'framer-motion';
 import { io } from 'socket.io-client';
 
-const socket = io('http://localhost:3000');
+const socket = io(import.meta.env.VITE_API_URL);
 
 const StatCard = ({ title, value, icon: Icon, trend, color }: any) => {
     const colorClasses: Record<string, string> = {
