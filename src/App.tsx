@@ -11,12 +11,13 @@ import Newsandevents from './components/neca_components/Newsandevents';
 import Whatwedo from './components/neca_components/Whatwedo';
 import AdminLogin from './components/neca_admin/AdminLogin';
 import AdminDashboard from './components/neca_admin/AdminDashboard';
+import { Toaster } from "@/components/ui/sonner";
 
 function App() {
 
   return (
     <>
-
+      <Toaster />
       <ErrorBoundary>
         <BrowserRouter>
           <Routes>

@@ -1,11 +1,45 @@
 import { Partner } from "@/assets/images/images"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { FaFacebookF, FaInstagram } from "react-icons/fa"
+import { toast } from "sonner"
 import Footer from "./Footer"
 import Navigationbar from "./Navigationbar"
 
 const ContactUs = () => {
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        subject: "Membership Inquiry",
+        message: ""
+    });
 
+    const handleChange = (e: any) => {
+        setFormData({ ...formData, [e.target.name || 'subject']: e.target.value });
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        try {
+            // Save to shared Backend for Admin Portal
+            const response = await fetch('http://localhost:3000/api/contacts', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+
+            if (!response.ok) throw new Error('Failed to send message');
+
+            const newSubmission = await response.json();
+            console.log("Contact Message Saved to Backend", newSubmission);
+            
+            toast.success("Message sent successfully! We will get back to you soon.");
+            setFormData({ name: "", email: "", subject: "Membership Inquiry", message: "" });
+        } catch (error) {
+            console.error("Contact Error:", error);
+            toast.error("Something went wrong. Please try again later.");
+        }
+    };
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -107,25 +141,36 @@ const ContactUs = () => {
                             Send Us a Message
                         </h3>
 
-                        <form className="space-y-4">
+                        <form className="space-y-4" onSubmit={handleSubmit}>
 
                             {/* Name */}
                             <input
                                 type="text"
+                                name="name"
+                                value={formData.name}
+                                onChange={handleChange}
                                 placeholder="Name"
+                                required
                                 className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                             />
 
                             {/* Email */}
                             <input
                                 type="email"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleChange}
                                 placeholder="Email"
+                                required
                                 className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                             />
 
 
                             {/* Subject */}
                             <select
+                                name="subject"
+                                value={formData.subject}
+                                onChange={handleChange}
                                 className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                             >
                                 <option>Membership Inquiry</option>
@@ -137,14 +182,18 @@ const ContactUs = () => {
                             {/* Message */}
                             <textarea
                                 rows={4}
+                                name="message"
+                                value={formData.message}
+                                onChange={handleChange}
                                 placeholder="Message"
+                                required
                                 className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                             ></textarea>
 
                             {/* Submit */}
                             <button
                                 type="submit"
-                                className="bg-yellow-400 hover:bg-yellow-500 px-6 py-3 rounded-full font-semibold w-full"
+                                className="bg-yellow-400 hover:bg-yellow-500 px-6 py-3 rounded-full font-semibold w-full transition-all duration-300 transform active:scale-95"
                             >
                                 Submit
                             </button>
@@ -163,3 +212,4 @@ const ContactUs = () => {
 }
 
 export default ContactUs
+

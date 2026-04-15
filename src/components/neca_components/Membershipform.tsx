@@ -1,6 +1,7 @@
 import { Necalogo } from "@/assets/images/images";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 import Footer from "./Footer";
 
 const Membershipform = () => {
@@ -19,7 +20,7 @@ const Membershipform = () => {
         message: "",
     });
 
-    const [, setPhoto] = useState<File | null>(null);
+    const [photo, setPhoto] = useState<File | null>(null);
     const [photoPreview, setPhotoPreview] = useState<string | null>(null);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -44,9 +45,35 @@ const Membershipform = () => {
         }
     };
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log("Form Submitted", formData);
+        
+        try {
+            const data = new FormData();
+            Object.entries(formData).forEach(([key, value]) => {
+                data.append(key, value);
+            });
+            if (photo) {
+                data.append('profileImage', photo);
+            }
+
+            // Save to shared Backend for Admin Portal
+            const response = await fetch('http://localhost:3000/api/memberships', {
+                method: 'POST',
+                body: data
+            });
+
+            if (!response.ok) throw new Error('Failed to submit form');
+
+            const newSubmission = await response.json();
+            console.log("Form Submitted to Backend with Image", newSubmission);
+            
+            toast.success("Subscription successful! Your application has been sent to our admin team.");
+            navigate("/home");
+        } catch (error) {
+            console.error("Submission Error:", error);
+            toast.error("Something went wrong. Please try again later.");
+        }
     };
 
     useEffect(() => {
