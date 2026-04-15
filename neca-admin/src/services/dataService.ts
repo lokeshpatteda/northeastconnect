@@ -9,6 +9,7 @@ export interface MembershipData {
     message: string;
     date: string;
     status: 'pending' | 'approved' | 'rejected';
+    image_url?: string;
 }
 
 export interface ContactData {
@@ -19,6 +20,7 @@ export interface ContactData {
     message: string;
     date: string;
     status: 'new' | 'read' | 'replied';
+    image_url?: string;
 }
 
 const API_BASE = `${import.meta.env.VITE_API_URL}/api`;

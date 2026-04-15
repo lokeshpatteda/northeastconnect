@@ -10,6 +10,7 @@ const socket = io(import.meta.env.VITE_API_URL);
 const ContactInquiries = () => {
     const [inquiries, setInquiries] = useState<ContactData[]>([]);
     const [searchTerm, setSearchTerm] = useState('');
+    const [selectedContact, setSelectedContact] = useState<ContactData | null>(null);
 
     useEffect(() => {
         const fetchContacts = async () => {
