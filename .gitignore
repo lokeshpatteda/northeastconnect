@@ -12,6 +12,15 @@ dist
 dist-ssr
 *.local
  
+neca-admin/node_modules
+neca-admin/dist
+neca-admin/dist-ssr
+neca-admin/.vite
+
+backend-server/node_modules
+backend-server/dist
+backend-server/dist-ssr
+backend-server/.vite
 
 # Editor directories and files
 .vscode/*
