@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { 
-    Users, 
-    MessageSquare, 
-    TrendingUp, 
-    UserPlus, 
+import {
+    Users,
+    MessageSquare,
+    TrendingUp,
+    UserPlus,
     Clock,
     CheckCircle2,
     AlertCircle
@@ -68,17 +68,17 @@ const Dashboard = () => {
             });
 
             const activities = [
-                ...members.slice(0, 3).map(m => ({ 
-                    type: 'membership', 
-                    name: m.name, 
-                    date: m.date, 
+                ...members.slice(0, 3).map(m => ({
+                    type: 'membership',
+                    name: m.name,
+                    date: m.date,
                     status: m.status,
                     label: 'New membership application'
                 })),
-                ...contacts.slice(0, 3).map(c => ({ 
-                    type: 'contact', 
-                    name: c.name, 
-                    date: c.date, 
+                ...contacts.slice(0, 3).map(c => ({
+                    type: 'contact',
+                    name: c.name,
+                    date: c.date,
                     status: c.status,
                     label: 'New message received'
                 }))
@@ -108,31 +108,31 @@ const Dashboard = () => {
 
             {/* Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <StatCard 
-                    title="Total Applications" 
-                    value={stats.totalMembers} 
-                    icon={Users} 
-                    trend="12" 
-                    color="yellow" 
+                <StatCard
+                    title="Total Applications"
+                    value={stats.totalMembers}
+                    icon={Users}
+                    trend="12"
+                    color="yellow"
                 />
-                <StatCard 
-                    title="New Inquiries" 
-                    value={stats.totalContacts} 
-                    icon={MessageSquare} 
-                    trend="5" 
-                    color="blue" 
+                <StatCard
+                    title="New Inquiriesss"
+                    value={stats.totalContacts}
+                    icon={MessageSquare}
+                    trend="5"
+                    color="blue"
                 />
-                <StatCard 
-                    title="Pending Review" 
-                    value={stats.pendingMembers} 
-                    icon={Clock} 
-                    color="yellow" 
+                <StatCard
+                    title="Pending Review"
+                    value={stats.pendingMembers}
+                    icon={Clock}
+                    color="yellow"
                 />
-                <StatCard 
-                    title="Action Required" 
-                    value={stats.newContacts} 
-                    icon={AlertCircle} 
-                    color="red" 
+                <StatCard
+                    title="Action Required"
+                    value={stats.newContacts}
+                    icon={AlertCircle}
+                    color="red"
                 />
             </div>
 
@@ -143,19 +143,18 @@ const Dashboard = () => {
                         <h3 className="text-xl font-bold text-white tracking-tight">Recent Submissions</h3>
                         <button className="text-primary text-sm font-bold hover:underline transition-all">View All</button>
                     </div>
-                    
+
                     <div className="space-y-6">
                         {recentActivites.map((activity, idx) => (
-                            <motion.div 
+                            <motion.div
                                 initial={{ opacity: 0, x: -20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: idx * 0.1 }}
-                                key={idx} 
+                                key={idx}
                                 className="flex items-center gap-6 p-4 rounded-2xl hover:bg-white/5 transition-all group border border-transparent hover:border-white/5"
                             >
-                                <div className={`w-12 h-12 rounded-2xl flex items-center justify-center ${
-                                    activity.type === 'membership' ? 'bg-primary/10 text-primary' : 'bg-blue-400/10 text-blue-400'
-                                }`}>
+                                <div className={`w-12 h-12 rounded-2xl flex items-center justify-center ${activity.type === 'membership' ? 'bg-primary/10 text-primary' : 'bg-blue-400/10 text-blue-400'
+                                    }`}>
                                     {activity.type === 'membership' ? <UserPlus size={20} /> : <MessageSquare size={20} />}
                                 </div>
                                 <div className="flex-1">
