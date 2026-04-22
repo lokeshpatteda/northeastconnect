@@ -32,9 +32,16 @@ import Necalogo from "./neca-logo.png";
 import Necaconnect from "./neca_connect.png";
 import Necalogolight from "./necalogo-light.png";
 import Loginimg from "./login_bg.jpg";
-
-
-
+import Gallery1 from "./gallery/gallery1.png";
+import Gallery2 from "./gallery/gallery2.png";
+import Gallery3 from "./gallery/gallery3.png";
+import Gallery4 from "./gallery/gallery4.png";
+import Gallery5 from "./gallery/gallery5.png";
+import Gallery6 from "./gallery/gallery6.png";
+import Gallerykims1 from "./gallery/gallery-kims1.png";
+import Gallerykims2 from "./gallery/gallery-kims2.png";
+import Gallerykims3 from "./gallery/gallery-kims3.png";
+import Gallerykims4 from "./gallery/gallery-kims4.png";
 
 
 export {
@@ -63,7 +70,17 @@ export {
     Activity4,
     Activity5,
     Activity6,
-    Loginimg
+    Loginimg,
+    Gallery1,
+    Gallery2,
+    Gallery3,
+    Gallery4,
+    Gallery5,
+    Gallery6,
+    Gallerykims1,
+    Gallerykims2,
+    Gallerykims3,
+    Gallerykims4
 
 };
 

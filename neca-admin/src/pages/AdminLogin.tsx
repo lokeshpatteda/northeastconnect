@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Eye, EyeOff } from 'lucide-react';
 import { motion } from 'framer-motion';
-import logo from '../assets/neca-logo.png';
-import bgImage from '../assets/partner.png';
+import { Eye, EyeOff } from 'lucide-react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import bgImage from '../assets/login_bg.jpg';
+import logo from '../assets/necalogo-light.png';
 
 const AdminLogin = () => {
     const navigate = useNavigate();
@@ -11,114 +11,143 @@ const AdminLogin = () => {
     const [credentials, setCredentials] = useState({ email: '', password: '' });
     const [error, setError] = useState('');
 
-    const handleLogin = (e: React.FormEvent) => {
+    const handleLogin = (e) => {
         e.preventDefault();
-        // Updated credentials to match the image's email field concept
-        if (credentials.email === 'admin@neca.org' || credentials.email === 'admin') {
+
+        if (
+            credentials.email === 'admin@neca.org' ||
+            credentials.email === 'admin'
+        ) {
             if (credentials.password === 'neca@2026') {
                 localStorage.setItem('neca_admin_auth', 'true');
                 navigate('/dashboard');
                 return;
             }
         }
+
         setError('Invalid email or password');
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-[#0a0f1e] p-4 font-outfit">
-            <motion.div 
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-yellow-500/90 via-black to-neutral-950 p-4 font-outfit">
+
+            <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="w-full max-w-[1000px] flex flex-col md:flex-row bg-[#1e2533] rounded-[24px] overflow-hidden shadow-2xl border border-white/5"
+                className="w-full max-w-[800px] flex flex-col md:flex-row rounded-[28px] overflow-hidden shadow-4xl border border-white/30 backdrop-blur-xl bg-white/5"
             >
-                {/* Left Side: Image & Welcome */}
-                <div className="md:w-1/2 relative min-h-[400px]">
-                    <img 
-                        src={bgImage} 
-                        alt="Welcome" 
+
+                {/* LEFT SIDE */}
+                <div className="hidden lg:block md:block md:w-1/2 relative min-h-[420px] ">
+                    <img
+                        src={bgImage}
+                        alt="Welcome"
                         className="absolute inset-0 w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px] flex flex-col items-center justify-center text-center p-12">
-                        <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                            Welcome to <br /> <span className="text-yellow-400">NECA Admin</span>
+
+                    <div className="absolute inset-0 bg-black/60 backdrop-blur-[3px] flex flex-col items-center justify-center text-center p-10">
+                        <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                            Welcome to NECA  <span className="text-yellow-500">Admin</span>
                         </h1>
-                        <p className="text-slate-200 text-lg max-w-sm leading-relaxed">
+
+                        <p className="text-gray-300 text-sm max-w-xs">
                             Access your dashboard securely and manage operations efficiently with modern tools.
                         </p>
                     </div>
                 </div>
 
-                {/* Right Side: Login Form */}
-                <div className="md:w-1/2 p-8 md:p-12 flex flex-col items-center justify-center">
-                    <img src={logo} alt="NECA Logo" className="h-16 mb-8" />
-                    
-                    <div className="flex items-center gap-4 w-full mb-8">
-                        <div className="h-[1px] flex-1 bg-white/10"></div>
-                        <h2 className="text-white text-xl font-bold whitespace-nowrap">Admin Login</h2>
-                        <div className="h-[1px] flex-1 bg-white/10"></div>
-                    </div>
-                    <p className="text-slate-400 text-sm mb-8 -mt-6">Secure access to NECA dashboard</p>
+                {/* RIGHT SIDE */}
+                <div className="md:w-1/2 p-10 bg-[#000000] flex flex-col justify-center">
 
-                    <form onSubmit={handleLogin} className="w-full space-y-6">
-                        <div className="space-y-2">
-                            <label className="text-sm font-medium text-slate-300 ml-1">Email</label>
-                            <input 
-                                type="text" 
+                    {/* LOGO */}
+                    <img src={logo} alt="NECA Logo" className="h-12 mb-6 mx-auto" />
+
+                    <div className="text-center mb-6">
+
+                        {/* TITLE WITH SMOOTH LINES */}
+                        <div className="flex items-center gap-3">
+                            <div className="h-[2px] flex-1 bg-gradient-to-r from-transparent to-gray-500"></div>
+                            <div>
+                                <h2 className="text-white text-lg font-semibold whitespace-nowrap">
+                                    Admin Login
+                                </h2>
+                                <p className="text-gray-400 text-xs">
+                                    Operations admin space
+                                </p>
+                            </div>
+                            <div className="h-[2px]  flex-1 bg-gradient-to-l from-transparent to-gray-500"></div>
+                        </div>
+
+                        {/* SUBTITLE (closer + aligned) */}
+
+
+                    </div>
+
+                    {/* FORM */}
+                    <form onSubmit={handleLogin} className="space-y-5">
+
+                        {/* EMAIL */}
+                        <div>
+                            <label className="text-sm text-gray-400 ml-1">User name</label>
+                            <input
+                                type="text"
                                 placeholder="admin@neca.org"
-                                className="w-full bg-[#2a3447] border border-white/5 rounded-xl px-5 py-3.5 text-white outline-none focus:border-yellow-400/50 transition-all"
+                                className="w-full mt-1 bg-[#334155] border border-transparent rounded-lg px-4 py-3 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-yellow-500"
                                 value={credentials.email}
-                                onChange={(e) => setCredentials({...credentials, email: e.target.value})}
+                                onChange={(e) =>
+                                    setCredentials({ ...credentials, email: e.target.value })
+                                }
                                 required
                             />
                         </div>
 
-                        <div className="space-y-2">
-                            <label className="text-sm font-medium text-slate-300 ml-1">Password</label>
-                            <div className="relative">
-                                <input 
-                                    type={showPassword ? "text" : "password"} 
+                        {/* PASSWORD */}
+                        <div className='mb-5'>
+                            <label className="text-sm text-gray-400 ml-1">Password</label>
+                            <div className="relative mt-1">
+                                <input
+                                    type={showPassword ? 'text' : 'password'}
                                     placeholder="••••••••"
-                                    className="w-full bg-[#2a3447] border border-white/5 rounded-xl px-5 py-3.5 text-white outline-none focus:border-yellow-400/50 transition-all"
+                                    className="w-full bg-[#334155] border border-transparent rounded-lg px-4 py-3 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-yellow-500"
                                     value={credentials.password}
-                                    onChange={(e) => setCredentials({...credentials, password: e.target.value})}
+                                    onChange={(e) =>
+                                        setCredentials({ ...credentials, password: e.target.value })
+                                    }
                                     required
                                 />
-                                <button 
+
+                                <button
                                     type="button"
                                     onClick={() => setShowPassword(!showPassword)}
-                                    className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white transition-colors"
+                                    className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white"
                                 >
-                                    {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                                    {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                                 </button>
                             </div>
                         </div>
 
-                        <div className="flex items-center justify-between">
-                            <label className="flex items-center gap-2 cursor-pointer group">
-                                <div className="w-4 h-4 border border-white/20 rounded bg-white/5 group-hover:border-yellow-400 transition-colors"></div>
-                                <span className="text-xs text-slate-400 group-hover:text-slate-200 transition-colors">Remember me</span>
-                            </label>
-                            <a href="#" className="text-xs text-yellow-400 hover:underline">Forgot Password?</a>
-                        </div>
 
+
+                        {/* ERROR */}
                         {error && (
                             <p className="text-red-400 text-xs text-center bg-red-400/10 py-2 rounded-lg border border-red-400/20">
                                 {error}
                             </p>
                         )}
 
-                        <button 
-                            type="submit" 
-                            className="w-full bg-yellow-400 text-slate-900 py-4 rounded-full font-bold text-lg hover:bg-yellow-500 hover:scale-[1.01] transition-all shadow-xl shadow-yellow-400/10 active:scale-95 mt-4"
+                        {/* BUTTON */}
+                        <button
+                            type="submit"
+                            className="cursor-pointer mt-2 w-full bg-yellow-500 hover:bg-yellow-600 text-black py-3 rounded-full font-semibold transition-all"
                         >
                             Login
                         </button>
 
-                        <div className="text-center pt-8">
-                            <p className="text-slate-600 text-[10px] tracking-[0.2em] uppercase font-bold">
-                                © NECA Admin Panel
-                            </p>
-                        </div>
+                        {/* FOOTER */}
+                        <p className="text-gray-500 text-xs text-center mt-6">
+                            © NECA Admin Panel
+                        </p>
+
                     </form>
                 </div>
             </motion.div>

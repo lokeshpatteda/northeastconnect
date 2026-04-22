@@ -66,12 +66,12 @@ const RecentActivity = () => {
         },
         {
             img: Activity2,
-            title: "Cultural Exchange Program",
+            title: "Sensitization at Continental Hospital",
             month: "Apr",
-            day: "05",
-            weekday: "Sunday",
+            day: "21",
+            weekday: "Tuesday",
             year: "2026",
-            upcome: "Upcoming",
+            upcome: "",
             view: "View Details",
         },
         {
@@ -225,7 +225,7 @@ const RecentActivity = () => {
                         </div>
 
                         {/* Content */}
-                        <div className="p-6">
+                        <div className="p-6 text-left">
                             <h3 className="text-xl font-semibold text-gray-800">
                                 {selectedItem.title}
                             </h3>
@@ -239,10 +239,16 @@ const RecentActivity = () => {
                                 exchange, strengthen community bonds, and support social
                                 integration across communities.
                             </p>
-
-                            <button className="mt-5 px-5 py-2 bg-yellow-400 rounded-full hover:bg-yellow-500 transition">
-                                View Details
-                            </button>
+                            <div className="flex justify-end border-t border-gray-200 pt-2 mt-3 ">
+                                <div>
+                                    <p className="text-sm  mt-2">
+                                        - North-East Connect Association (NECA-Team)
+                                    </p>
+                                    <p className="text-sm text-gray-500 pl-3">
+                                        Hyderabad, Telangana
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

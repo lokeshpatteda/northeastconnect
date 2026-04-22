@@ -13,6 +13,7 @@ const navigation = [
     { name: 'What We Do', href: '/what-we-do' },
     { name: 'Events', href: '/events' },
     { name: 'Contact', href: '/contact' },
+    { name: 'Gallery', href: '/gallery' }
 ]
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')

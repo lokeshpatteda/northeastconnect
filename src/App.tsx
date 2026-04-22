@@ -1,5 +1,6 @@
 import './App.css';
 
+import { Toaster } from "@/components/ui/sonner";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import ErrorBoundary from '../ErrorBoundary';
 import AboutUs from './components/neca_components/AboutUs';
@@ -9,9 +10,7 @@ import MemberProfile from './components/neca_components/MemberProfile';
 import Membershipform from './components/neca_components/Membershipform';
 import Newsandevents from './components/neca_components/Newsandevents';
 import Whatwedo from './components/neca_components/Whatwedo';
-import AdminLogin from './components/neca_admin/AdminLogin';
-import AdminDashboard from './components/neca_admin/AdminDashboard';
-import { Toaster } from "@/components/ui/sonner";
+import GalleryEvents from './components/neca_components/GalleryEvents';
 
 function App() {
 
@@ -30,8 +29,7 @@ function App() {
             <Route path="/membership" element={<Membershipform />} />
             <Route path="/member/:id" element={<MemberProfile />} />
             <Route path="*" element={<Navigate to="/home" />} />
-            <Route path="/adminlogin" element={<AdminLogin />} />
-            <Route path="/dashboard" element={<AdminDashboard />} />
+            <Route path="/gallery" element={<GalleryEvents />} />
           </Routes>
         </BrowserRouter>
       </ErrorBoundary>

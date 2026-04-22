@@ -42,64 +42,74 @@ const Newsandevents = () => {
                         <h3 className="text-lg text-left font-semibold text-gray-700 mb-4">
                             Upcoming Events
                         </h3>
+                        <div className="relative bg-gray-100">
+                            <div className="blur-sm flex flex-col sm:flex-row gap-6 border-t pt-6 items-center">
 
-                        <div className="flex flex-col sm:flex-row gap-6 border-t pt-6 items-center">
+                                {/* DATE BLOCK */}
+                                <div className="text-center min-w-[80px]">
 
-                            {/* DATE BLOCK */}
-                            <div className="text-center min-w-[80px]">
-
-                                <p className="text-gray-600 text-sm uppercase">
-                                    {news[activeIndex].month}
-                                </p>
-                                <div className='flex gap-2 items-center justify-center'>
-
-                                    <p className="text-5xl font-bold text-yellow-600 leading-none">
-                                        {news[activeIndex].day}
+                                    <p className="text-gray-600 text-sm uppercase">
+                                        {news[activeIndex].month}
                                     </p>
-                                    <p className="text-xl font-bold text-gray-800 border-l border-gray-400 pl-3">
-                                        {news[activeIndex].time}
+                                    <div className='flex gap-2 items-center justify-center'>
+
+                                        <p className="text-5xl font-bold text-yellow-600 leading-none">
+                                            {news[activeIndex].day}
+                                        </p>
+                                        <p className="text-xl font-bold text-gray-800 border-l border-gray-400 pl-3">
+                                            {news[activeIndex].time}
+                                        </p>
+
+
+                                    </div>
+
+                                    <p className="text-gray-600 text-sm">
+                                        {news[activeIndex].weekday}
                                     </p>
 
+                                    <p className="text-xs text-gray-500">
+                                        {news[activeIndex].year}
+                                    </p>
 
                                 </div>
 
-                                <p className="text-gray-600 text-sm">
-                                    {news[activeIndex].weekday}
-                                </p>
+                                {/* IMAGE */}
+                                <img
+                                    src={news[activeIndex].img}
+                                    className="w-full sm:w-56 h-40 rounded-xl object-cover shadow-md transition-all duration-500"
+                                />
 
-                                <p className="text-xs text-gray-500">
-                                    {news[activeIndex].year}
-                                </p>
+                                {/* CONTENT */}
+                                <div className="flex-1 text-left">
 
+                                    <h4 className="font-semibold text-gray-800 text-lg">
+                                        {news[activeIndex].title}
+                                    </h4>
+
+                                    <p className="text-sm text-gray-500 mt-1">
+                                        {news[activeIndex].month} {news[activeIndex].day}, {news[activeIndex].year}
+                                    </p>
+
+                                    <p className="text-sm text-gray-600 mt-2 line-clamp-2">
+                                        The program will be honored by the gracious presence of <br /> <b>Mr. Raghunath Reddy Garu,</b> Director of Continental Hospital, as the Chief Guest, along with active involvement of NECA and participation from hospital staff to ensure meaningful discussions and the success of the session.
+                                    </p>
+                                    <button
+                                        onClick={() => setOpenModal(true)}
+                                        className="mt-3 cursor-pointer inline-flex items-center gap-1 text-sm font-medium text-yellow-600 hover:text-yellow-700 transition"
+                                    >
+                                        View Details
+                                    </button>
+
+                                </div>
                             </div>
-
-                            {/* IMAGE */}
-                            <img
-                                src={news[activeIndex].img}
-                                className="w-full sm:w-56 h-40 rounded-xl object-cover shadow-md transition-all duration-500"
-                            />
-
-                            {/* CONTENT */}
-                            <div className="flex-1 text-left">
-
-                                <h4 className="font-semibold text-gray-800 text-lg">
-                                    {news[activeIndex].title}
-                                </h4>
-
-                                <p className="text-sm text-gray-500 mt-1">
-                                    {news[activeIndex].month} {news[activeIndex].day}, {news[activeIndex].year}
-                                </p>
-
-                                <p className="text-sm text-gray-600 mt-2 line-clamp-2">
-                                    The program will be honored by the gracious presence of <br /> <b>Mr. Raghunath Reddy Garu,</b> Director of Continental Hospital, as the Chief Guest, along with active involvement of NECA and participation from hospital staff to ensure meaningful discussions and the success of the session.
-                                </p>
-                                <button
-                                    onClick={() => setOpenModal(true)}
-                                    className="mt-3 cursor-pointer inline-flex items-center gap-1 text-sm font-medium text-yellow-600 hover:text-yellow-700 transition"
-                                >
-                                    View Details
-                                </button>
-
+                            {/* 🔥 MASK OVERLAY */}
+                            <div className="absolute inset-0 bg-black/50 rounded-xl flex items-center justify-center">
+                                <div>
+                                    <p className="text-white text-3xl text-yellow-300 md:text-3xl font-semibold">
+                                        Updates Coming Soon
+                                    </p>
+                                    <p className="text-gray-300 text-sm  md:text-sm font-semibold">Stay Tuned</p>
+                                </div>
                             </div>
                         </div>
                     </div>

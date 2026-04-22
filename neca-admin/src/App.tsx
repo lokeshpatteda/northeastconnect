@@ -5,6 +5,7 @@ import MembershipRequests from './pages/MembershipRequests';
 import ContactInquiries from './pages/ContactInquiries';
 import AdminLayout from './components/AdminLayout';
 import { Toaster } from "@/components/ui/sonner";
+import { ThemeProvider } from './components/ThemeProvider';
 
 // Protected Route Component
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
@@ -14,41 +15,43 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 
 function App() {
   return (
-    <Router>
-      <Toaster />
-      <Routes>
-        {/* Public Route */}
-        <Route path="/" element={<AdminLogin />} />
+    <ThemeProvider defaultTheme="dark" storageKey="neca-admin-theme">
+      <Router>
+        <Toaster />
+        <Routes>
+          {/* Public Route */}
+          <Route path="/" element={<AdminLogin />} />
 
-        {/* Protected Admin Routes */}
-        <Route path="/dashboard" element={
-          <ProtectedRoute>
-            <AdminLayout>
-              <Dashboard />
-            </AdminLayout>
-          </ProtectedRoute>
-        } />
+          {/* Protected Admin Routes */}
+          <Route path="/dashboard" element={
+            <ProtectedRoute>
+              <AdminLayout>
+                <Dashboard />
+              </AdminLayout>
+            </ProtectedRoute>
+          } />
 
-        <Route path="/memberships" element={
-          <ProtectedRoute>
-            <AdminLayout>
-              <MembershipRequests />
-            </AdminLayout>
-          </ProtectedRoute>
-        } />
+          <Route path="/memberships" element={
+            <ProtectedRoute>
+              <AdminLayout>
+                <MembershipRequests />
+              </AdminLayout>
+            </ProtectedRoute>
+          } />
 
-        <Route path="/contacts" element={
-          <ProtectedRoute>
-            <AdminLayout>
-              <ContactInquiries />
-            </AdminLayout>
-          </ProtectedRoute>
-        } />
+          <Route path="/contacts" element={
+            <ProtectedRoute>
+              <AdminLayout>
+                <ContactInquiries />
+              </AdminLayout>
+            </ProtectedRoute>
+          } />
 
-        {/* Redirect for unknown routes */}
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
-    </Router>
+          {/* Redirect for unknown routes */}
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
 }
 
