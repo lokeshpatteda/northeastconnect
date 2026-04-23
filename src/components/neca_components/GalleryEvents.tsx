@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navigationbar from "./Navigationbar";
 import Footer from "./Footer";
 import {
@@ -9,6 +9,9 @@ import {
 import { Gallery1, Gallery2, Gallery3, Gallery4, Gallery5, Gallery6, Gallerykims1, Gallerykims2, Gallerykims3, Gallerykims4 } from "@/assets/images/images";
 
 const Gallery = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     const [selectedAlbum, setSelectedAlbum] = useState<any>(null);
     const [activeIndex, setActiveIndex] = useState<number | null>(null);

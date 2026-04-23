@@ -1,17 +1,19 @@
-import React, { useState } from 'react';
-import { useNavigate, useLocation, Link } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
 import {
-    LayoutDashboard,
-    Users,
-    MessageSquare,
-    Settings,
-    LogOut,
     Bell,
-    Search,
+    LayoutDashboard,
+    LogOut,
     Menu,
-    X
+    MessageSquare,
+    Search,
+    Settings,
+    Users,
+    X,
+    Calendar,
+    Clock
 } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../assets/neca-logo.png';
 import logolight from '../assets/necalogo-light.png';
 import { ModeToggle } from './ModeToggle';
@@ -36,11 +38,50 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
     const location = useLocation();
     const [isMobileOpen, setIsMobileOpen] = React.useState(false);
 
+    const [isNotificationsOpen, setIsNotificationsOpen] = React.useState(false);
+    const [notifications, setNotifications] = React.useState<any[]>([]);
+
+    React.useEffect(() => {
+        const fetchNotifications = async () => {
+            try {
+                const { DataService } = await import('../services/dataService');
+                const members = await DataService.getMemberships();
+                const contacts = await DataService.getContacts();
+
+                const pendingMembers = members.filter((m: any) => m.status === 'pending');
+                const newContacts = contacts.filter((c: any) => c.status === 'new');
+
+                const newNotifs = [
+                    ...pendingMembers.map((m: any) => ({
+                        id: `m-${m.id}`,
+                        type: 'membership',
+                        name: m.name,
+                        label: 'New membership application pending review.',
+                        date: m.date
+                    })),
+                    ...newContacts.map((c: any) => ({
+                        id: `c-${c.id}`,
+                        type: 'contact',
+                        name: c.name,
+                        label: 'New contact message received.',
+                        date: c.date
+                    }))
+                ].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+                setNotifications(newNotifs);
+            } catch (error) {
+                console.error("Error fetching notifications:", error);
+            }
+        };
+        fetchNotifications();
+    }, []);
+
     const menuItems = [
         { icon: LayoutDashboard, label: 'Dashboard', path: '/dashboard' },
         { icon: Users, label: 'Memberships', path: '/memberships' },
         { icon: MessageSquare, label: 'Contact Us', path: '/contacts' },
-        { icon: Settings, label: 'Settings', path: '/settings' },
+        { icon: Calendar, label: 'Upcoming Events', path: '/events' },
+        { icon: Clock, label: 'Recent Events', path: '/recent-events' },
     ];
 
     const handleLogout = () => {
@@ -80,10 +121,10 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
                     ))}
                 </nav>
 
-                <div className="p-6">
+                <div className="p-6 px-0">
                     <button
                         onClick={handleLogout}
-                        className="flex items-center gap-4 px-6 py-4 w-full text-muted-foreground hover:text-destructive hover:bg-destructive/10 rounded-2xl transition-all font-medium"
+                        className="flex items-center gap-4 px-6 py-4 w-full cursor-pointer text-destructive bg-destructive/15 border border-destructive/20 hover:text-destructive/100  hover:bg-destructive/25 rounded-md transition-all font-medium"
                     >
                         <LogOut size={20} />
                         <span className="text-sm">Logout</span>
@@ -110,9 +151,14 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
 
                     <div className="flex items-center gap-6">
                         <ModeToggle />
-                        <button className="relative p-2 text-muted-foreground hover:text-foreground transition-colors">
+                        <button
+                            className="relative p-2 text-muted-foreground hover:text-foreground transition-colors"
+                            onClick={() => setIsNotificationsOpen(true)}
+                        >
                             <Bell size={20} />
-                            <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-primary rounded-full border-2 border-background"></span>
+                            {notifications.length > 0 && (
+                                <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-primary rounded-full border-2 border-background"></span>
+                            )}
                         </button>
 
                         <div className="flex items-center gap-3 pl-6 border-l border-border">
@@ -186,6 +232,55 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
                                 ))}
                             </nav>
                         </motion.aside>
+                    </>
+                )}
+            </AnimatePresence>
+
+            {/* Notifications Drawer */}
+            <AnimatePresence>
+                {isNotificationsOpen && (
+                    <>
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setIsNotificationsOpen(false)}
+                            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50"
+                        />
+                        <motion.div
+                            initial={{ x: '100%' }}
+                            animate={{ x: 0 }}
+                            exit={{ x: '100%' }}
+                            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+                            className="fixed right-0 top-0 bottom-0 w-80 bg-card border-l border-border shadow-2xl z-50 flex flex-col"
+                        >
+                            <div className="p-6 border-b border-border flex items-center justify-between">
+                                <h2 className="font-bold text-lg text-foreground">Notifications</h2>
+                                <button onClick={() => setIsNotificationsOpen(false)} className="text-muted-foreground hover:text-foreground transition-colors">
+                                    <X size={20} />
+                                </button>
+                            </div>
+                            <div className="flex-1 overflow-y-auto p-4 space-y-4">
+                                {notifications.length === 0 ? (
+                                    <div className="text-center text-muted-foreground mt-10">No new notifications</div>
+                                ) : (
+                                    notifications.map(notif => (
+                                        <div key={notif.id} className="p-4 bg-muted/30 rounded-xl border border-border">
+                                            <div className="flex items-center gap-3 mb-2">
+                                                <div className={`w-8 h-8 rounded-full flex items-center justify-center ${notif.type === 'membership' ? 'bg-primary/20 text-primary' : 'bg-blue-500/20 text-blue-500'}`}>
+                                                    {notif.type === 'membership' ? <Users size={14} /> : <MessageSquare size={14} />}
+                                                </div>
+                                                <div>
+                                                    <h4 className="font-bold text-sm text-foreground">{notif.name}</h4>
+                                                    <p className="text-[10px] text-muted-foreground">{new Date(notif.date).toLocaleDateString()}</p>
+                                                </div>
+                                            </div>
+                                            <p className="text-sm text-muted-foreground">{notif.label}</p>
+                                        </div>
+                                    ))
+                                )}
+                            </div>
+                        </motion.div>
                     </>
                 )}
             </AnimatePresence>

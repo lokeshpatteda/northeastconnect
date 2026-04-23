@@ -6,10 +6,11 @@ import {
     UserPlus,
     Clock,
     CheckCircle2,
-    AlertCircle
+    AlertCircle,
+    X
 } from 'lucide-react';
 import { DataService } from '../services/dataService';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { io } from 'socket.io-client';
 
 const socket = io(import.meta.env.VITE_API_URL);
@@ -51,6 +52,9 @@ const Dashboard = () => {
     });
 
     const [recentActivites, setRecentActivities] = useState<any[]>([]);
+    const [allActivities, setAllActivities] = useState<any[]>([]);
+    const [isSubmissionsModalOpen, setIsSubmissionsModalOpen] = useState(false);
+    const [isApproving, setIsApproving] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -67,15 +71,17 @@ const Dashboard = () => {
                 newContacts: contacts.filter(c => c.status === 'new').length
             });
 
-            const activities = [
-                ...members.slice(0, 3).map(m => ({
+            const allActs = [
+                ...members.map(m => ({
+                    id: m.id,
                     type: 'membership',
                     name: m.name,
                     date: m.date,
                     status: m.status,
                     label: 'New membership application'
                 })),
-                ...contacts.slice(0, 3).map(c => ({
+                ...contacts.map(c => ({
+                    id: c.id,
                     type: 'contact',
                     name: c.name,
                     date: c.date,
@@ -84,7 +90,8 @@ const Dashboard = () => {
                 }))
             ].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
-            setRecentActivities(activities);
+            setAllActivities(allActs);
+            setRecentActivities(allActs.slice(0, 6));
         };
 
         fetchData();
@@ -98,6 +105,64 @@ const Dashboard = () => {
             socket.off('new-contact');
         };
     }, []);
+
+    const handleApproveAll = async () => {
+        setIsApproving(true);
+        try {
+            const pendingMembers = allActivities.filter(a => a.type === 'membership' && a.status === 'pending');
+            for (const member of pendingMembers) {
+                await DataService.updateMembershipStatus(member.id, 'approved');
+            }
+            // The socket will trigger a refetch, but we can also manually refetch to be safe
+            const members = await DataService.getMemberships();
+            const contacts = await DataService.getContacts();
+            
+            // Re-calculate stats to update dashboard immediately
+            setStats({
+                totalMembers: members.length,
+                totalContacts: contacts.length,
+                pendingMembers: members.filter(m => m.status === 'pending').length,
+                newContacts: contacts.filter(c => c.status === 'new').length
+            });
+            
+            const allActs = [
+                ...members.map(m => ({ id: m.id, type: 'membership', name: m.name, date: m.date, status: m.status, label: 'New membership application' })),
+                ...contacts.map(c => ({ id: c.id, type: 'contact', name: c.name, date: c.date, status: c.status, label: 'New message received' }))
+            ].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+            
+            setAllActivities(allActs);
+            setRecentActivities(allActs.slice(0, 6));
+
+        } catch (error) {
+            console.error("Failed to approve all", error);
+        } finally {
+            setIsApproving(false);
+        }
+    };
+
+    const handleExportCSV = () => {
+        const headers = ['Type', 'Name', 'Date', 'Status', 'Label'];
+        const rows = allActivities.map(a => [
+            a.type, 
+            `"${a.name}"`, 
+            `"${new Date(a.date).toLocaleDateString()}"`, 
+            a.status, 
+            `"${a.label}"`
+        ]);
+        const csvContent = [
+            headers.join(','),
+            ...rows.map(e => e.join(','))
+        ].join('\n');
+        
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'Export.csv');
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
 
     return (
         <div className="space-y-4 animate-fade font-outfit flex flex-col h-[87vh]">
@@ -141,7 +206,7 @@ const Dashboard = () => {
                     <div className="lg:col-span-2 bg-card backdrop-blur-xl border border-border rounded-[15px] p-6 shadow-md">
                         <div className="flex items-center justify-between mb-4">
                             <h3 className="text-xl font-bold text-foreground tracking-tight">Recent Submissions</h3>
-                            <button className="text-primary text-sm font-bold hover:underline transition-all hover:text-primary/80">View All</button>
+                            <button onClick={() => setIsSubmissionsModalOpen(true)} className="text-primary text-sm font-bold hover:underline transition-all hover:text-primary/80">View All</button>
                         </div>
 
                         <div className="space-y-2">
@@ -180,11 +245,18 @@ const Dashboard = () => {
                         <div className="bg-card backdrop-blur-xl border border-border rounded-[15px] p-6 border-primary/20 shadow-md">
                             <h3 className="text-xl font-bold mb-6 text-foreground tracking-tight">Quick Actions</h3>
                             <div className="space-y-4">
-                                <button className="w-full bg-primary text-primary-foreground py-3.5 rounded-full font-bold flex items-center justify-center gap-2 hover:opacity-90 hover:scale-[1.02] transition-all shadow-lg shadow-primary/10">
+                                <button 
+                                    onClick={handleApproveAll}
+                                    disabled={isApproving || stats.pendingMembers === 0}
+                                    className="w-full bg-primary text-primary-foreground py-3.5 rounded-full font-bold flex items-center justify-center gap-2 hover:opacity-90 hover:scale-[1.02] transition-all shadow-lg shadow-primary/10 disabled:opacity-50 disabled:hover:scale-100"
+                                >
                                     <CheckCircle2 size={18} />
-                                    <span>Approve All Pending</span>
+                                    <span>{isApproving ? 'Approving...' : 'Approve All Pending'}</span>
                                 </button>
-                                <button className="w-full py-3 rounded-full border border-border hover:bg-muted transition-all font-bold text-sm text-muted-foreground hover:text-foreground">
+                                <button 
+                                    onClick={handleExportCSV}
+                                    className="w-full py-3 rounded-full border border-border hover:bg-muted transition-all font-bold text-sm text-muted-foreground hover:text-foreground"
+                                >
                                     Download Export (.CSV)
                                 </button>
                             </div>
@@ -199,6 +271,65 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Submissions Drawer */}
+            <AnimatePresence>
+                {isSubmissionsModalOpen && (
+                    <>
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setIsSubmissionsModalOpen(false)}
+                            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50"
+                        />
+                        <motion.div
+                            initial={{ x: '100%' }}
+                            animate={{ x: 0 }}
+                            exit={{ x: '100%' }}
+                            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+                            className="fixed right-0 top-0 bottom-0 w-full max-w-md bg-card border-l border-border shadow-2xl z-50 flex flex-col"
+                        >
+                            <div className="p-6 border-b border-border flex items-center justify-between">
+                                <h2 className="font-bold text-xl text-foreground">All Submissions</h2>
+                                <button onClick={() => setIsSubmissionsModalOpen(false)} className="text-muted-foreground hover:text-foreground transition-colors p-2 hover:bg-muted rounded-full">
+                                    <X size={20} />
+                                </button>
+                            </div>
+                            <div className="flex-1 overflow-y-auto p-6 space-y-3">
+                                {allActivities.map((activity, idx) => (
+                                    <div
+                                        key={idx}
+                                        className="flex items-center gap-4 p-4 rounded-xl bg-muted/20 border border-border/50 hover:border-border transition-all"
+                                    >
+                                        <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 ${activity.type === 'membership' ? 'bg-primary/10 text-primary' : 'bg-blue-400/10 text-blue-400'}`}>
+                                            {activity.type === 'membership' ? <UserPlus size={20} /> : <MessageSquare size={20} />}
+                                        </div>
+                                        <div className="flex-1 min-w-0">
+                                            <h4 className="font-bold text-foreground truncate">{activity.name}</h4>
+                                            <p className="text-sm text-muted-foreground font-medium truncate">{activity.label}</p>
+                                        </div>
+                                        <div className="text-right shrink-0">
+                                            <p className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">
+                                                {new Date(activity.date).toLocaleDateString()}
+                                            </p>
+                                            <div className="mt-1.5 flex items-center justify-end gap-2">
+                                                <div className={`w-1.5 h-1.5 rounded-full ${activity.status === 'pending' || activity.status === 'new' ? 'bg-primary animate-pulse' : 'bg-green-400'}`} />
+                                                <span className="text-[10px] font-black uppercase tracking-tight text-muted-foreground">{activity.status}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                                {allActivities.length === 0 && (
+                                    <div className="text-center text-muted-foreground py-10">
+                                        No submissions found.
+                                    </div>
+                                )}
+                            </div>
+                        </motion.div>
+                    </>
+                )}
+            </AnimatePresence>
         </div>
     );
 };

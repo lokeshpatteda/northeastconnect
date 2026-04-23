@@ -158,7 +158,7 @@ const ContactInquiries = () => {
                         ))}
 
                         {filteredInquiries.length === 0 && (
-                            <div className="py-24 text-center bg-card backdrop-blur-xl border border-dashed border-border rounded-[20px] shadow-inner">
+                            <div className="py-24 text-center ">
                                 <div className="w-20 h-20 bg-muted rounded-full flex items-center justify-center mx-auto mb-6">
                                     <MessageSquare size={40} className="text-muted-foreground" />
                                 </div>
