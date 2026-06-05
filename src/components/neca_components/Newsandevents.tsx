@@ -152,9 +152,9 @@ const Newsandevents = () => {
                             Recent News
                         </h3>
                         <div className="space-y-4">
-                            {latestNews.map((latestNewsItem) => (
+                            {latestNews.map((latestNewsItem, index) => (
                                 <div
-                                    key={latestNewsItem.id}
+                                    key={index}
                                     className="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow"
                                 >
                                     {/* IMAGE */}

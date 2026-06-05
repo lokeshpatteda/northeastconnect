@@ -1,4 +1,4 @@
-import { Event2, Event6 } from "@/assets/images/images"
+import { Event6 } from "@/assets/images/images"
 import { useEffect } from "react"
 import { FaBullseye, FaEye } from "react-icons/fa"
 import Footer from "./Footer"
