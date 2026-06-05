@@ -1,4 +1,4 @@
-import { News1, News2, News3, News4 } from "@/assets/images/images";
+import { Latestnews1, News1, News2, News3, News4 } from "@/assets/images/images";
 
 const news = [
     {
@@ -43,5 +43,18 @@ const news = [
     }
 
 
+
 ];
+
+const latestNews = [
+    {
+        img: Latestnews1,
+        title: "Telangana Guv launched North-East Connect Association (NECA) in Telangana",
+        month: "Nov",
+        day: "28",
+        year: "2025",
+    }
+];
+
+export { news, latestNews };
 export default news;

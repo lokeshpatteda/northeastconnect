@@ -1,6 +1,6 @@
-import { Event1, Event2, Event3, Event4, Event5, Event8, Event9, IntroImage, Partner } from '@/assets/images/images';
+import { Event1, Event2, Event3, Event4, Event5, Event6, Event7, Event8, Event9, IntroImage, Partner } from '@/assets/images/images';
 import members from '@/pages/membersdata';
-import news from '@/pages/news';
+import news, { latestNews } from '@/pages/news';
 import getinvolved from '@/pages/textdata';
 import { faArrowRight, faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -17,7 +17,7 @@ const LandingPage = () => {
     const navigate = useNavigate();
     const [current, setCurrent] = useState(0);
     const [activeIndex, setActiveIndex] = useState(0);
-    const images = [Event1, Event2, Event3, Event4, Event5, Event8, Event9];
+    const images = [Event1, Event2, Event3, Event4, Event5, Event6, Event7, Event8, Event9];
     const [openModal, setOpenModal] = useState(false);
 
     useEffect(() => {
@@ -247,7 +247,7 @@ const LandingPage = () => {
 
                     {/* Background Image */}
                     <img
-                        src={Event8}
+                        src={Event7}
                         className="absolute inset-0 w-full h-full object-cover"
                         alt="NECA Community"
                     />
@@ -420,118 +420,163 @@ const LandingPage = () => {
                         </p>
                     </div>
 
-                    <div className="max-w-7xl mx-auto px-4 grid  md:grid-cols-[3fr_1.1fr] gap-10">
+                    <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[3fr_1fr_] gap-6 md:gap-8">
+                        <div>
+                            {/* LEFT - ACTIVE EVENT */}
+                            <div className="transition-all duration-700 lg:col-span-1">
 
-                        {/* LEFT - ACTIVE EVENT */}
-                        <div className="transition-all duration-700">
+                                <h3 className="text-lg text-left font-semibold text-gray-700 mb-4">
+                                    Upcoming Events
+                                </h3>
+                                <div className="relative bg-gray-100">
+                                    <div className="blur-sm flex flex-col sm:flex-row gap-6 border-t pt-6 items-center">
 
-                            <h3 className="text-lg text-left font-semibold text-gray-700 mb-4">
-                                Upcoming Events
-                            </h3>
-                            <div className="relative bg-gray-100">
-                                <div className="flex flex-col blur-sm  sm:flex-row gap-6 border-t pt-6 items-center">
+                                        {/* DATE BLOCK */}
+                                        <div className="text-center min-w-[80px]">
 
-                                    {/* DATE BLOCK */}
-                                    <div className="text-center min-w-[80px]">
-
-                                        <p className="text-gray-600 text-sm uppercase">
-                                            {news[activeIndex].month}
-                                        </p>
-                                        <div className='flex gap-2 items-center justify-center'>
-
-                                            <p className="text-5xl font-bold text-yellow-600 leading-none">
-                                                {news[activeIndex].day}
+                                            <p className="text-gray-600 text-sm uppercase">
+                                                {news[activeIndex].month}
                                             </p>
-                                            <p className="text-xl font-bold text-gray-800 border-l border-gray-400 pl-3">
-                                                {news[activeIndex].time}
+                                            <div className='flex gap-2 items-center justify-center'>
+
+                                                <p className="text-5xl font-bold text-yellow-600 leading-none">
+                                                    {news[activeIndex].day}
+                                                </p>
+                                                <p className="text-xl font-bold text-gray-800 border-l border-gray-400 pl-3">
+                                                    {news[activeIndex].time}
+                                                </p>
+
+
+                                            </div>
+
+                                            <p className="text-gray-600 text-sm">
+                                                {news[activeIndex].weekday}
                                             </p>
 
+                                            <p className="text-xs text-gray-500">
+                                                {news[activeIndex].year}
+                                            </p>
 
                                         </div>
 
-                                        <p className="text-gray-600 text-sm">
-                                            {news[activeIndex].weekday}
-                                        </p>
+                                        {/* IMAGE */}
+                                        <img
+                                            src={news[activeIndex].img}
+                                            className="w-full sm:w-56 h-40 rounded-xl object-cover shadow-md transition-all duration-500"
+                                        />
 
-                                        <p className="text-xs text-gray-500">
-                                            {news[activeIndex].year}
-                                        </p>
+                                        {/* CONTENT */}
+                                        <div className="flex-1 text-left">
 
+                                            <h4 className="font-semibold text-gray-800 text-lg">
+                                                {news[activeIndex].title}
+                                            </h4>
+
+                                            <p className="text-sm text-gray-500 mt-1">
+                                                {news[activeIndex].month} {news[activeIndex].day}, {news[activeIndex].year}
+                                            </p>
+
+                                            <p className="text-sm text-gray-600 mt-2 line-clamp-2">
+                                                The program will be honored by the gracious presence of <br /> <b>Mr. Raghunath Reddy Garu,</b> Director of Continental Hospital, as the Chief Guest, along with active involvement of NECA and participation from hospital staff to ensure meaningful discussions and the success of the session.
+                                            </p>
+                                            <button
+                                                onClick={() => setOpenModal(true)}
+                                                className="mt-3 cursor-pointer inline-flex items-center gap-1 text-sm font-medium text-yellow-600 hover:text-yellow-700 transition"
+                                            >
+                                                View Details
+                                            </button>
+
+                                        </div>
                                     </div>
-
-                                    {/* IMAGE */}
-                                    <img
-                                        src={news[activeIndex].img}
-                                        className="w-full sm:w-56 h-40 rounded-xl object-cover shadow-md transition-all duration-500"
-                                    />
-
-                                    {/* CONTENT */}
-                                    <div className="flex-1 text-left">
-
-                                        <h4 className="font-semibold text-gray-800 text-lg">
-                                            {news[activeIndex].title}
-                                        </h4>
-
-                                        <p className="text-sm text-gray-500 mt-1">
-                                            {news[activeIndex].month} {news[activeIndex].day}, {news[activeIndex].year}
-                                        </p>
-
-                                        <p className="text-sm text-gray-600 mt-2 line-clamp-2">
-                                            The program will be honored by the gracious presence of <br /> <b>Mr. Raghunath Reddy Garu,</b> Director of Continental Hospital, as the Chief Guest, along with active involvement of NECA and participation from hospital staff to ensure meaningful discussions and the success of the session.
-                                        </p>
-                                        <button
-                                            onClick={() => setOpenModal(true)}
-                                            className="mt-3 cursor-pointer inline-flex items-center gap-1 text-sm font-medium text-yellow-600 hover:text-yellow-700 transition"
-                                        >
-                                            View Details
-                                        </button>
-
-                                    </div>
-                                </div>
-                                {/* 🔥 MASK OVERLAY */}
-                                <div className="absolute inset-0 bg-black/50 rounded-xl flex items-center justify-center">
-                                    <div>
-                                        <p className="text-white text-3xl text-yellow-300 md:text-3xl font-semibold">
-                                            Updates Coming Soon
-                                        </p>
-                                        <p className="text-gray-300 text-sm  md:text-sm font-semibold">Stay Tuned</p>
+                                    {/* 🔥 MASK OVERLAY */}
+                                    <div className="absolute inset-0 bg-black/50 rounded-xl flex items-center justify-center">
+                                        <div>
+                                            <p className="text-white text-3xl text-yellow-300 md:text-3xl font-semibold">
+                                                Updates Coming Soon
+                                            </p>
+                                            <p className="text-gray-300 text-sm  md:text-sm font-semibold">Stay Tuned</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+
+
+                            <div className="block md:felx lg:flex  space-y-5  gap-2 text-left pt-5">
+
+                                {news
+                                    .filter((_, i) => i !== activeIndex)
+                                    .map((item, index) => (
+                                        <div
+                                            key={index}
+                                            className="flex gap-4 items-start opacity-80 hover:opacity-100 transition"
+                                        >
+
+                                            <img
+                                                src={item.img}
+                                                className="w-20 h-14 object-cover rounded-md"
+                                            />
+
+                                            <div>
+                                                <h4 className="text-sm font-semibold text-gray-800 tracking-tight line-clamp-2">
+                                                    {item.title}
+                                                </h4>
+
+                                                <p className="text-xs text-left text-gray-500 mt-1">
+                                                    {item.month} {item.day}, {item.year}
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                    ))}
+
+                            </div>
                         </div>
 
-
-                        {/* RIGHT - OTHER EVENTS */}
-                        <div className="space-y-5 text-left">
-
-                            {news
-                                .filter((_, i) => i !== activeIndex)
-                                .map((item, index) => (
+                        {/* RIGHT - NEWS */}
+                        <div>
+                            <h3 className="text-lg text-left font-semibold text-gray-700 mb-4">
+                                Recent News
+                            </h3>
+                            <div className="space-y-4">
+                                {latestNews.map((latestNewsItem) => (
                                     <div
-                                        key={index}
-                                        className="flex gap-4 items-start opacity-80 hover:opacity-100 transition"
+                                        key={latestNewsItem.id}
+                                        className="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow"
                                     >
+                                        {/* IMAGE */}
+                                        <div className="relative h-43 overflow-hidden">
+                                            <img
+                                                src={latestNewsItem.img}
+                                                alt={latestNewsItem.title}
+                                                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                                            />
 
-                                        <img
-                                            src={item.img}
-                                            className="w-20 h-14 object-cover rounded-md"
-                                        />
-
-                                        <div>
-                                            <h4 className="text-sm font-semibold text-gray-800">
-                                                {item.title}
-                                            </h4>
-
-                                            <p className="text-sm text-left text-gray-500 mt-1">
-                                                {news[activeIndex].month} {news[activeIndex].day}, {news[activeIndex].year}
-                                            </p>
                                         </div>
 
+                                        {/* CONTENT */}
+                                        <div className="p-3">
+                                            <h4 className="text-sm text-left font-semibold text-gray-800 mb-2 line-clamp-2">
+                                                {latestNewsItem.title}
+                                            </h4>
+                                            <div className="flex items-center justify-between mt-5">
+                                                <p className="text-xs text-left text-gray-500 mt-1">
+                                                    {latestNewsItem.month} {latestNewsItem.day}, {latestNewsItem.year}
+                                                </p>
+                                                <a
+                                                    href="https://worldprogressivenews.com/telangana-guv-launched-north-east-connect-association-neca-in-telangana/?fbclid=IwY2xjawOWhT9leHRuA2FlbQIxMQBzcnRjBmFwcF9pZAwzNTA2ODU1MzE3MjgAAR7sgwvJVhxOmVsBW4oJVzJYdXqZrHx9GeNOfjV1kOM_Wt6-8PI93GSlQorzeg_aem_1Fpx4u9vzhONE1nEBNo0ng&sfnsn=wiwspwa"
+                                                    className="inline-flex items-center gap-1 text-xs font-medium text-yellow-600 hover:text-yellow-700 transition"
+                                                >
+                                                    <div className="bg-yellow-500 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                                                        View News
+                                                    </div>
+
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
                                 ))}
-
+                            </div>
                         </div>
-
 
                         {openModal && (
                             <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4">
@@ -614,7 +659,6 @@ const LandingPage = () => {
                                                 ></iframe>
                                             </div>
                                         </div>
-
 
 
                                     </div>

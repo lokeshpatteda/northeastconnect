@@ -12,7 +12,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: "*", 
+        origin: "*",
         methods: ["GET", "POST"]
     }
 });
@@ -50,7 +50,7 @@ app.get('/api/memberships', async (req, res) => {
             .from('memberships')
             .select('*')
             .order('date', { ascending: false });
-        
+
         if (error) throw error;
         res.json(data);
     } catch (err) {
@@ -63,7 +63,7 @@ app.post('/api/memberships', upload.single('profileImage'), async (req, res) => 
     try {
         const submission = req.body;
         const imageUrl = req.file ? `${process.env.BASE_URL}/uploads/${req.file.filename}` : null;
-        
+
         const newSubmission = {
             ...submission,
             date: new Date().toISOString(),
@@ -123,7 +123,7 @@ app.get('/api/contacts', async (req, res) => {
             .from('contacts')
             .select('*')
             .order('date', { ascending: false });
-        
+
         if (error) throw error;
         res.json(data);
     } catch (err) {

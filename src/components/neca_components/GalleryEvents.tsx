@@ -6,7 +6,7 @@ import {
     ChevronRight,
     X
 } from "lucide-react";
-import { Gallery1, Gallery2, Gallery3, Gallery4, Gallery5, Gallery6, Gallerykims1, Gallerykims2, Gallerykims3, Gallerykims4 } from "@/assets/images/images";
+import { Gallery1, Gallery2, Gallery3, Gallery4, Gallery5, Gallery6, Gallerykims1, Gallerykims2, Gallerykims3, Gallerykims4, Gallerylaunch1, Gallerylaunch2, Gallerylaunch3, Gallerylaunch4, Gallerylaunch5, Gallerylaunch6 } from "@/assets/images/images";
 
 const Gallery = () => {
     useEffect(() => {
@@ -26,6 +26,11 @@ const Gallery = () => {
             title: "Continental Hospital Sensitisation",
             count: 4,
             images: [Gallery1, Gallery2, Gallery3, Gallery4, Gallery5, Gallery6],
+        },
+        {
+            title: "Telangana Guv launched NECA in Telangana",
+            count: 5,
+            images: [Gallerylaunch1, Gallerylaunch2, Gallerylaunch3, Gallerylaunch4, Gallerylaunch5, Gallerylaunch6],
         },
 
     ];

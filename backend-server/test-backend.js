@@ -13,7 +13,7 @@ http.get(URL, (res) => {
     res.on('end', () => {
         console.log('✅ HTTP Root Check: Passed');
         console.log('Response:', JSON.parse(data));
-        
+
         testSocket();
     });
 }).on('error', (err) => {
@@ -28,7 +28,7 @@ function testSocket() {
     socket.on('connect', () => {
         console.log('✅ Socket.io Connection: Passed');
         console.log('Socket ID:', socket.id);
-        
+
         console.log('\n--- Test Successful ---');
         console.log('You can now use the Website and Admin Portal safely.');
         socket.disconnect();

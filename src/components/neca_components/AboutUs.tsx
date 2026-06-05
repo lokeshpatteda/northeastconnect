@@ -1,4 +1,4 @@
-import { Event2 } from "@/assets/images/images"
+import { Event2, Event6 } from "@/assets/images/images"
 import { useEffect } from "react"
 import { FaBullseye, FaEye } from "react-icons/fa"
 import Footer from "./Footer"
@@ -20,7 +20,7 @@ const AboutUs = () => {
                 <section className="relative h-[45vh] flex items-center justify-center text-white">
 
                     <img
-                        src={Event2}
+                        src={Event6}
                         className="absolute inset-0 w-full h-full object-cover"
                     />
 

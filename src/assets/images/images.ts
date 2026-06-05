@@ -11,6 +11,7 @@ import News1 from "../images/news1.jpg";
 import News2 from "../images/news2.jpg";
 import News3 from "../images/news3.jpg";
 import News4 from "../images/news4.jpg";
+import Latestnews1 from "../images/lates-news.jpg";
 import Activity1 from "../images/actimg1.jpg";
 import Activity2 from "../images/actimg2.jpg";
 import Activity3 from "../images/actimg3.jpg";
@@ -42,6 +43,12 @@ import Gallerykims1 from "./gallery/gallery-kims1.png";
 import Gallerykims2 from "./gallery/gallery-kims2.png";
 import Gallerykims3 from "./gallery/gallery-kims3.png";
 import Gallerykims4 from "./gallery/gallery-kims4.png";
+import Gallerylaunch1 from "./gallery/gallery-launch1.jpg";
+import Gallerylaunch2 from "./gallery/gallery-launch2.jpg";
+import Gallerylaunch3 from "./gallery/gallery-launch3.jpg";
+import Gallerylaunch4 from "./gallery/gallery-launch4.jpg";
+import Gallerylaunch5 from "./gallery/gallery-launch5.jpg";
+import Gallerylaunch6 from "./gallery/gallery-launch6.jpg";
 
 
 export {
@@ -64,6 +71,7 @@ export {
     News2,
     News3,
     News4, Partner, Volunteer,
+    Latestnews1,
     Activity1,
     Activity2,
     Activity3,
@@ -80,7 +88,13 @@ export {
     Gallerykims1,
     Gallerykims2,
     Gallerykims3,
-    Gallerykims4
+    Gallerykims4,
+    Gallerylaunch1,
+    Gallerylaunch2,
+    Gallerylaunch3,
+    Gallerylaunch4,
+    Gallerylaunch5,
+    Gallerylaunch6
 
 };
 
