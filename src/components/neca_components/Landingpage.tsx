@@ -535,7 +535,7 @@ const LandingPage = () => {
                         {/* RIGHT - NEWS */}
                         <div>
                             <h3 className="text-lg text-left font-semibold text-gray-700 mb-4">
-                                Recent News
+                                Latest News
                             </h3>
                             <div className="space-y-4">
                                 {latestNews.map((latestNewsItem, index) => (
@@ -563,13 +563,12 @@ const LandingPage = () => {
                                                     {latestNewsItem.month} {latestNewsItem.day}, {latestNewsItem.year}
                                                 </p>
                                                 <a
-                                                    href="https://worldprogressivenews.com/telangana-guv-launched-north-east-connect-association-neca-in-telangana/?fbclid=IwY2xjawOWhT9leHRuA2FlbQIxMQBzcnRjBmFwcF9pZAwzNTA2ODU1MzE3MjgAAR7sgwvJVhxOmVsBW4oJVzJYdXqZrHx9GeNOfjV1kOM_Wt6-8PI93GSlQorzeg_aem_1Fpx4u9vzhONE1nEBNo0ng&sfnsn=wiwspwa"
+                                                    href="https://www.deccanchronicle.com/southern-states/telangana/telangananorth-east-cultural-bond-should-grow-stronger-dgp-mahesh-bhagwat-1969731"
                                                     className="inline-flex items-center gap-1 text-xs font-medium text-yellow-600 hover:text-yellow-700 transition"
                                                 >
                                                     <div className="bg-yellow-500 text-white px-2 py-1 rounded-full text-xs font-semibold">
                                                         View News
                                                     </div>
-
                                                 </a>
                                             </div>
                                         </div>

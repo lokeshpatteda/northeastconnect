@@ -49,10 +49,10 @@ const news = [
 const latestNews = [
     {
         img: Latestnews1,
-        title: "Telangana Guv launched North-East Connect Association (NECA) in Telangana",
-        month: "Nov",
-        day: "28",
-        year: "2025",
+        title: "KIMS Hospitals and NECA Host Cultural Awareness Programme",
+        month: "July",
+        day: "09",
+        year: "2026",
     }
 ];
 

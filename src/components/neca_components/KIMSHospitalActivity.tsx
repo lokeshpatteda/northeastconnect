@@ -1,7 +1,5 @@
 
 const KIMSHospitalActivity = () => {
-
-
     return (
         <div className="space-y-8 text-gray-700 leading-relaxed max-w-3xl mx-auto">
             {/* Header Section */}
@@ -10,15 +8,15 @@ const KIMSHospitalActivity = () => {
                     Program Overview
                 </div>
                 <h2 className="text-xl font-bold text-gray-900 leading-tight">
-                    Sensitization Program at KIMS Hospital
+                    KIMS Hospitals and NECA Host Cultural Awareness
                 </h2>
                 <h4 className="font-medium text-gray-500 mt-2">
-                    Healthcare Environment
+                    Secunderabad
                 </h4>
             </div>
 
             <p className="text-gray-600">
-                The North East Connect Association (NECA) organized a vital sensitization program at KIMS Hospital, focusing on improving cultural awareness and addressing the unique challenges faced by Northeast Indians in healthcare settings.
+                Telangana Director General of Police (Law & Order) M. Mahesh Bhagwat on Thursday said there is a need to further strengthen the cultural bond between Telangana and the North-Eastern States. He was speaking as the chief guest at a cultural awareness programme on the heritage and traditions of the North-East, jointly organised by KIMS Hospitals and the North East Connect Association (NECA) at KIMS Hospitals, Secunderabad.
             </p>
 
             {/* Event Highlights */}
@@ -30,15 +28,16 @@ const KIMSHospitalActivity = () => {
                 <ul className="space-y-5">
                     <li className="flex items-start gap-3 text-left">
                         <div className="w-2 h-2 rounded-full bg-yellow-500 mt-2 shrink-0" />
-                        <span><strong>Interactive Workshops:</strong> Engaging sessions designed to help medical staff recognize and mitigate unconscious bias.</span>
+                        <span><strong>Mr. Bhagwat -</strong> said such initiatives play a vital role in enhancing awareness about the history, culture, traditions and languages of the North-Eastern States. He noted that a large number of people from the region are contributing to Telangana, particularly Hyderabad, in sectors such as healthcare, education and other professions, and stressed the importance of respecting and preserving their cultural identity.</span>
                     </li>
                     <li className="flex items-start gap-3 text-left">
                         <div className="w-2 h-2 rounded-full bg-yellow-500 mt-2 shrink-0" />
-                        <span><strong>Cultural Exchange:</strong> Open dialogues promoting a better understanding of the diverse traditions from the eight states of Northeast India.</span>
+                        <span><strong>Dr. B. Bhaskar Rao -</strong> Chairman and Managing Director of KIMS Group of Hospitals, who attended as the guest of honour, said many professionals from the North-Eastern States serve in the group's hospitals across nursing, paramedical and other departments. The programme, he said, was organised to promote a better understanding of their unique culture and way of life while fostering a more inclusive and welcoming work environment.</span>
                     </li>
+
                     <li className="flex items-start gap-3 text-left">
                         <div className="w-2 h-2 rounded-full bg-yellow-500 mt-2 shrink-0" />
-                        <span><strong>Policy Discussions:</strong> Review of existing hospital guidelines to ensure they support an equitable and respectful environment for all patients and staff.</span>
+                        <span><strong>Paparrao Biyyala - </strong> Among those present were Paparrao Biyyala, President of NECA and retired IAS officer; Gautam Sawang, Vice-President of NECA and retired IPS officer; Stephen Ronojit Sen, Treasurer; Board Member Dr. K. Rajeswara Rao (Retd. IAS); Sridhar Muppidi; Dr. Sambit Sahu, Director – Medical Operations, KIMS Hospitals; and members of the North-Eastern community residing in Hyderabad.</span>
                     </li>
                 </ul>
             </div>
@@ -50,13 +49,12 @@ const KIMSHospitalActivity = () => {
                     Program Impact
                 </h3>
                 <p className="text-gray-700 text-left" >
-                    Initiatives like the sensitization program at KIMS Hospital are crucial steps towards building trust between healthcare institutions and the communities they serve. By prioritizing empathy and cultural competence, we are working to ensure that every individual receives care with dignity.
+                    The programme concluded with vibrant cultural performances, including the traditional Bihu dance of Assam, a showcase of traditional attire representing all eight North-Eastern States, and a Manipuri dance performance, all of which received an enthusiastic response from the audience.
                 </p>
             </div>
 
-            <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 mt-10 text-center">
-                <h4 className="font-bold text-gray-900 mb-2">More Updates Coming Soon</h4>
-                <p className="text-gray-600 text-sm">Detailed summaries, photos, and key takeaways from the KIMS Hospital event will be published shortly.</p>
+            <div className="bg-gradient-to-r from-gray-900 to-gray-800 p-6 md:p-8 rounded-2xl shadow-lg mt-6">
+                <p className="text-white  italic leading-relaxed">Telangana–North East Cultural Bond Should Grow Stronger: DGP Mahesh Bhagwat"</p>
             </div>
 
             {/* Footer Signature */}

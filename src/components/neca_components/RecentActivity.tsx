@@ -15,6 +15,7 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import activities, { type ActivityData } from "@/pages/activitiesData";
 import ContinentalHospitalActivity from "./ContinentalHospitalActivity";
 import KIMSHospitalActivity from "./KIMSHospitalActivity";
+import TelanganaGuvLaunchActivity from "./TelanganaGuvLaunchActivity";
 
 const RecentActivity = () => {
     const [current, setCurrent] = useState(0);
@@ -176,6 +177,8 @@ const RecentActivity = () => {
                                 <ContinentalHospitalActivity />
                             ) : selectedItem.id === "kims-hospital" ? (
                                 <KIMSHospitalActivity />
+                            ) : selectedItem.id === "telangana-guvlaunch" ? (
+                                <TelanganaGuvLaunchActivity />
                             ) : (
                                 // Default Layout for other activities
                                 <div className="space-y-6 h-full flex flex-col justify-center">
