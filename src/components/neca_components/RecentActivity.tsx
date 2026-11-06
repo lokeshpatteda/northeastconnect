@@ -16,6 +16,7 @@ import activities, { type ActivityData } from "@/pages/activitiesData";
 import ContinentalHospitalActivity from "./ContinentalHospitalActivity";
 import KIMSHospitalActivity from "./KIMSHospitalActivity";
 import TelanganaGuvLaunchActivity from "./TelanganaGuvLaunchActivity";
+import KIMSAwarenessProgramme from "./KIMSAwarenessProgramme";
 
 const RecentActivity = () => {
     const [current, setCurrent] = useState(0);
@@ -179,6 +180,8 @@ const RecentActivity = () => {
                                 <KIMSHospitalActivity />
                             ) : selectedItem.id === "telangana-guvlaunch" ? (
                                 <TelanganaGuvLaunchActivity />
+                            ) : selectedItem.id === "kims-awareness" ? (
+                                <KIMSAwarenessProgramme />
                             ) : (
                                 // Default Layout for other activities
                                 <div className="space-y-6 h-full flex flex-col justify-center">
@@ -187,7 +190,7 @@ const RecentActivity = () => {
                                     </div>
                                     <h2 className="text-xl font-extrabold text-gray-900 mb-4">{selectedItem.title}</h2>
                                     <p className="text-gray-600 leading-relaxed  max-w-2xl">
-                                        NECA organizes impactful programs that promote cultural exchange, strengthen community bonds, and support social integration across communities.
+                                        The North East Connect Association (NECA) organised a sensitisation programme titled "Understanding the North East India: Culture and Traditions" on 29 October 2026 at the English and Foreign Languages University (EFLU), Hyderabad.
                                     </p>
 
                                     <div className="mt-12 bg-gray-50 p-6 rounded-2xl border border-gray-100">

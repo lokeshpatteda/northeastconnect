@@ -49,9 +49,9 @@ const news = [
 const latestNews = [
     {
         img: Latestnews1,
-        title: "KIMS Hospitals and NECA Host Cultural Awareness Programme",
-        month: "July",
-        day: "09",
+        title: "NECA Sensitisation Programme at EFLU, Hyderabad",
+        month: "October ",
+        day: "29",
         year: "2026",
     }
 ];

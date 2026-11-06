@@ -177,7 +177,7 @@ const Newsandevents = () => {
                                                 {latestNewsItem.month} {latestNewsItem.day}, {latestNewsItem.year}
                                             </p>
                                             <a
-                                                href="https://www.deccanchronicle.com/southern-states/telangana/telangananorth-east-cultural-bond-should-grow-stronger-dgp-mahesh-bhagwat-1969731"
+                                                href="https://x.com/EFLU_OFFICIAL/status/2115844325255094513"
                                                 className="inline-flex items-center gap-1 text-xs font-medium text-yellow-600 hover:text-yellow-700 transition"
                                             >
                                                 <div className="bg-yellow-500 text-white px-2 py-1 rounded-full text-xs font-semibold">
